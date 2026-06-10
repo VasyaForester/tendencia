@@ -1,0 +1,40 @@
+# Курируемые RSS-ленты и поисковые запросы для сбора источников
+
+rss_feeds:
+  - name: CISA Cybersecurity Advisories
+    url: https://www.cisa.gov/cybersecurity-advisories/all.xml
+    category: gov_cert
+  - name: Google Security Blog
+    url: https://security.googleblog.com/feeds/posts/default
+    category: vendor
+  - name: Microsoft Security Blog
+    url: https://www.microsoft.com/en-us/security/blog/feed/
+    category: vendor
+  - name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    category: vendor
+  - name: Anthropic News
+    url: https://www.anthropic.com/rss.xml
+    category: vendor
+  - name: OWASP Blog
+    url: https://owasp.org/blog/feed.xml
+    category: standards
+  - name: arXiv cs.CR (snapshot)
+    url: http://export.arxiv.org/rss/cs.CR
+    category: papers
+
+search_queries:
+  - "AI security LLM prompt injection 2026"
+  - "self-evolving agents AI security"
+  - "MCP model context protocol security"
+  - "AI agent tools security skills"
+  - "EU AI Act cybersecurity compliance 2026"
+  - "LLM agent tool abuse incident"
+  - "RAG poisoning attack LLM"
+  - "NIST AI RMF generative AI profile"
+  - "OWASP LLM Top 10 2026"
+  - "autonomous AI coding agent security risk"
+
+arxiv_queries:
+  - cat:cs.CR AND (LLM OR "large language model" OR agent OR "prompt injection")
+  - cat:cs.AI AND ("self-evolving" OR "self-improving" OR autonomous) AND security

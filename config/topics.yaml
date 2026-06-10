@@ -1,0 +1,26 @@
+# Обязательные и приоритетные темы для квартального отчёта
+
+must_include:
+  - id: self_evolving_agents
+    title_ru: "Саморазвивающиеся агенты (self-evolving agents)"
+    keywords: [self-evolving, self-improving, autonomous agent, recursive, self-modifying]
+  - id: ai_regulation
+    title_ru: "Регуляторика ИИ (AI Act и смежные требования)"
+    keywords: [AI Act, regulation, compliance, NIST, governance, EU AI]
+  - id: agent_tools
+    title_ru: "Инструменты AI-агентов (MCP, skills, tool-use)"
+    keywords: [MCP, model context protocol, agent skills, tool use, tool abuse, delegated auth]
+
+attack_surfaces:
+  - model_prompt
+  - agents_tools
+  - rag_data
+  - supply_chain
+  - deployment_ops
+  - governance
+
+report:
+  language: ru
+  audience: exec
+  trend_count: 10
+  compare_previous_quarter: true

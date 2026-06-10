@@ -1,0 +1,90 @@
+# Тренды AI Security ({{ quarter }}) — Executive Brief
+
+**Период:** {{ quarter.start }} — {{ quarter.end }}  
+**Сравнение:** vs {{ prev_quarter }}  
+**Дата подготовки:** {{ generated_on }}  
+**Источников собрано:** {{ source_count }}
+
+---
+
+## Краткое резюме для руководства
+
+{% for t in trends[:10] %}
+- **{{ t.title_ru }}** — {{ t.why_matters_ru }} Затронуты: {{ t.who_affected_ru }} Уверенность: **{{ t.confidence }}**.
+{% endfor %}
+
+---
+
+## Что материально изменилось в квартале (vs {{ prev_quarter }})
+
+{% for t in trends %}
+### {{ loop.index }}. {{ t.title_ru }}
+
+{{ t.summary_ru }}
+
+**Изменение к прошлому кварталу:** {{ t.changed_vs_prev_quarter_ru }}
+
+**Почему важно:** {{ t.why_matters_ru }}
+
+**Кому актуально:** {{ t.who_affected_ru }}
+
+**Уверенность:** {{ t.confidence }}
+
+{% if t.sources %}
+**Ключевые источники:**
+
+{% for s in t.sources -%}
+- [{{ s.title }}]({{ s.url }}) — {{ s.source_type }}{% if s.published %}, {{ s.published }}{% endif %}
+
+{% endfor -%}
+{% endif %}
+
+{% endfor %}
+
+---
+
+## Ландшафт угроз (сжато)
+
+| Поверхность | Сигнал квартала |
+|-------------|-----------------|
+| Модель и промпт | Prompt/indirect injection, jailbreaks |
+| Агенты и инструменты | MCP, skills, delegated auth, tool abuse |
+| RAG и данные | Poisoning, утечки через retrieval |
+| Supply chain | Целостность моделей, зависимости, артефакты |
+| Эксплуатация | Логирование агентов, IR, rate limits |
+| Governance | AI Act, NIST/OWASP mapping, evals |
+
+---
+
+## Приоритетные рекомендации
+
+1. **Инвентаризация agent tools** — каталог MCP/skills, owner, scope permissions (быстрый выигрыш).
+2. **Разделение trusted/untrusted контекста** — для RAG и browser/email tools (стратегически).
+3. **Запрет неконтролируемого self-modification** — human approval на новые skills и policy drift.
+4. **Маппинг на AI Act / NIST AI RMF** — для high-risk use cases до масштабирования.
+5. **Red-teaming агентных сценариев** — indirect injection + tool chain, не только chat jailbreaks.
+
+---
+
+## Метрики для мониторинга
+
+- Количество активных MCP/skills и % с security review
+- Инциденты tool invocation вне policy
+- Доля ответов с retrieval из untrusted corpora
+- Время реакции на новые vendor advisories по LLM
+
+---
+
+## Открытые вопросы
+
+- Насколько self-evolving agents станут production-default в 2026 H2?
+- Будут ли industry-стандарты для MCP trust и signing в Q3–Q4?
+- Какие метрики post-market monitoring примет регулятор для agentic systems?
+
+---
+
+## Приложение: источники
+
+{% for s in sources %}
+- [{{ s.title }}]({{ s.url }}) — {{ s.source_type }} — {{ s.origin }}{% if s.published %} — {{ s.published }}{% endif %}
+{% endfor %}
