@@ -145,7 +145,7 @@ CURATED_Q2_2026: dict[str, dict[str, str]] = {
 }
 
 
-def _apply_curated(trends: list[TrendItem]) -> list[TrendItem]:
+def apply_curated(trends: list[TrendItem]) -> list[TrendItem]:
     for trend in trends:
         curated = CURATED_Q2_2026.get(trend.id)
         if not curated:
@@ -167,7 +167,7 @@ def generate_report(
     sources: list[SourceItem],
     output_path: Path,
 ) -> Path:
-    trends = _apply_curated(trends)
+    trends = apply_curated(trends)
     prev = quarter.previous()
 
     env = Environment(

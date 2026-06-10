@@ -1,0 +1,47 @@
+Тренды AI Security (2026-Q2) — Executive Brief
+Период: 2026-04-01 — 2026-06-30
+Сравнение: vs 2026-Q1
+Дата: 2026-06-10
+Источников: 330
+
+КРАТКОЕ РЕЗЮМЕ
+------------------------------------------------------------
+1. Саморазвивающиеся агенты (self-evolving agents) [High]
+   Поведение агента меняется без релиза: новая поверхность для APT и insider-style атак. Классический change control и периметр не видят «тихую» эволюцию policy в memory.
+   Затронуты: Владельцы agentic платформ, SOC, команды с long-term memory (coding/research agents).
+
+2. Регуляторика ИИ (AI Act и смежные требования) [High]
+   Даже при отсрочке штрафных рамок организации должны проектировать agent/RAG-архитектуру под lifecycle security и post-market monitoring — иначе дорогой rework в 2027.
+   Затронуты: Compliance, legal, product owners в EU; глобальные вендоры с EU-клиентами.
+
+3. Инструменты AI-агентов (MCP, skills, tool-use) [High]
+   Агент = суперпользователь с LLM-интерфейсом. Компрометация одного MCP/skill даёт persistent access через mcp.json и cross-server tool shadowing.
+   Затронуты: Dev platform teams, SecOps, все пользователи AI coding assistants.
+
+4. Prompt injection и обход политик моделей [High]
+   Не нужен доступ к модели — достаточно untrusted content в browser/RAG/email pipeline.
+   Затронуты: Enterprise с browser tools, email agents, публичные coding assistants.
+
+5. Инциденты и злоупотребления в продакшене [High]
+   Реальные CVE переводят agent risk из теории в patch Tuesday.
+   Затронуты: Endpoint security, IT, разработчики на AI IDEs.
+
+6. Новые сигналы в ландшафте AI Security [Low]
+   Ранние индикаторы трендов H2 2026.
+   Затронуты: Threat intel, R&D security.
+
+7. Риски supply chain моделей и артефактов [High]
+   Повторяющийся сигнал в собранных источниках квартала.
+   Затронуты: Команды безопасности и владельцы AI-продуктов.
+
+8. Атаки на RAG и слой данных [Medium]
+   Model-level guardrails не спасают, если poisoned chunk попадает в retrieval.
+   Затронуты: RAG owners, data governance, teams с external crawlers.
+
+9. MCP как новый software supply chain [High]
+   Третья сторона в agent stack так же критична, как зависимости в CI/CD.
+   Затронуты: AppSec, platform engineering, procurement third-party AI tools.
+
+10. Agent gateways и enforcement на transport layer [Medium]
+   Единственный масштабируемый контроль при hundreds of MCP tools per agent.
+   Затронуты: Security architects внедряющих agentic AI.

@@ -29,6 +29,14 @@ tendencia run --quarter 2026-Q2
 | `tendencia collect --quarter 2026-Q2` | Только сбор источников |
 | `tendencia report --quarter 2026-Q2` | Отчёт из уже собранных данных |
 | `tendencia run --quarter 2026-Q2` | Полный цикл |
+| `tendencia show --quarter 2026-Q2` | Человекочитаемый вывод в терминал |
+| `tendencia show --quarter 2026-Q2 --brief` | Только краткое резюме (таблица трендов) |
+| `tendencia show --quarter 2026-Q2 --plain` | Плоский текст без цветов |
+| `tendencia show -o report.txt` | Сохранить plain-text в файл |
+| `tendencia report --print` | Сгенерировать MD и сразу показать в терминале |
+| `tendencia pdf --quarter 2026-Q2` | Подробный PDF-отчёт |
+| `tendencia pdf --open` | PDF и открыть в просмотрщике |
+| `tendencia pdf -o my-report.pdf` | PDF в указанный файл |
 
 ## Конфигурация
 
