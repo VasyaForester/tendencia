@@ -1,15 +1,38 @@
-# Обязательные и приоритетные темы для квартального отчёта
+# Тематическая таксономия (ЧТО обсуждается) и форматы источников (КАК опубликовано).
+# Тренды и графики «по темам» используют только themes.
+# Графики «по форматам» — только source_type из collectors/seed.
 
 must_include:
   - id: self_evolving_agents
     title_ru: "Саморазвивающиеся агенты (self-evolving agents)"
-    keywords: [self-evolving, self-improving, autonomous agent, recursive, self-modifying]
+    attack_surface: agents_tools
+    keywords: [self-evolving, self-improving, autonomous agent, recursive, self-modifying, misevolution, zombie agent]
   - id: ai_regulation
     title_ru: "Регуляторика ИИ (AI Act и смежные требования)"
-    keywords: [AI Act, regulation, compliance, NIST, governance, EU AI]
+    attack_surface: governance
+    keywords: [AI Act, regulation, compliance, NIST, governance, EU AI, omnibus]
   - id: agent_tools
     title_ru: "Инструменты AI-агентов (MCP, skills, tool-use)"
-    keywords: [MCP, model context protocol, agent skills, tool use, tool abuse, delegated auth]
+    attack_surface: agents_tools
+    keywords: [MCP, model context protocol, agent skills, tool use, tool abuse, delegated auth, stdio]
+
+secondary_themes:
+  - id: prompt_injection
+    title_ru: "Prompt injection и обход политик моделей"
+    attack_surface: model_prompt
+    keywords: [prompt injection, indirect prompt, jailbreak, tool poisoning, tool description]
+  - id: rag_data_layer
+    title_ru: "Атаки на RAG и слой данных"
+    attack_surface: rag_data
+    keywords: [rag, retrieval, poisoning, knowledge base, long-term memory, memory injection]
+  - id: model_supply_chain
+    title_ru: "Supply chain моделей, артефактов и skills"
+    attack_surface: supply_chain
+    keywords: [supply chain, npm, model weights, backdoor, tamper, skills marketplace, shodan]
+  - id: agent_runtime_governance
+    title_ru: "Runtime-контроль агентов (gateways, sandbox, policy)"
+    attack_surface: deployment_ops
+    keywords: [agent gateway, transport layer, default-deny, sandbox, runtime enforcement, policy layer]
 
 attack_surfaces:
   - model_prompt

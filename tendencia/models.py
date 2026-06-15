@@ -10,7 +10,7 @@ SourceType = Literal[
     "standards",
     "papers",
     "vendor",
-    "incidents",
+    "incidents",  # формат: отчёт об инциденте/CVE, не тематический тренд
     "news",
     "social",
     "unknown",
@@ -28,7 +28,7 @@ class SourceItem:
     source_type: SourceType = "unknown"
     origin: str = ""
     relevance_score: float = 0.0
-    matched_topics: list[str] = field(default_factory=list)
+    matched_topics: list[str] = field(default_factory=list)  # theme ids (см. taxonomy.py)
 
 
 @dataclass

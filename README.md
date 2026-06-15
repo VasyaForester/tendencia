@@ -38,6 +38,8 @@ tendencia run --quarter 2026-Q2
 | `tendencia pdf --open` | PDF и открыть в просмотрщике |
 | `tendencia pdf -o my-report.pdf` | PDF в указанный файл |
 
+PDF включает графики по **темам** (отдельно) и **форматам публикаций** (отдельно), плюс матрицу «тема × формат».
+
 ## Конфигурация
 
 - `config/sources.yaml` — RSS, поисковые запросы, arXiv queries

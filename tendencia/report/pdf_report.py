@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from datetime import date
+import os
+import tempfile
+from datetime import date, datetime
 from pathlib import Path
 
 from fpdf import FPDF
@@ -10,6 +12,7 @@ from fpdf import FPDF
 from tendencia.config_loader import project_root
 from tendencia.models import SourceItem, TrendItem
 from tendencia.quarter import Quarter
+from tendencia.report.charts import ChartPaths, generate_charts
 from tendencia.report.terminal import RECOMMENDATIONS
 
 ASSETS = Path(__file__).resolve().parent / "assets"
@@ -225,6 +228,61 @@ class TendenciaPDF(FPDF):
             self.set_text_color(0, 0, 0)
             self.ln(1)
 
+    def _embed_image(self, image_path: Path, caption: str, height_mm: float = 78) -> None:
+        self._ensure_space(height_mm + 14)
+        page_w = self.w - self.l_margin - self.r_margin
+        self.image(str(image_path), w=page_w, h=height_mm)
+        self.ln(2)
+        self.set_font("Body", "", 8)
+        self.set_text_color(*COLORS["muted"])
+        self.set_x(self.l_margin)
+        self.multi_cell(0, 4, caption, align="C")
+        self.set_text_color(0, 0, 0)
+        self.ln(4)
+
+    def analytics_charts(self, charts: ChartPaths, quarter: Quarter) -> None:
+        self.add_page()
+        self._section_title("Аналитика квартала")
+        self._body_text(
+            "Темы (MCP, self-evolving agents, регуляторика…) и форматы публикаций "
+            "(исследование, advisory, CVE-отчёт, новость) — разные оси. "
+            "На графиках 1–2 каждый источник имеет одну главную тему; "
+            "графики 3–4 показывают формат и его сочетание с темой."
+        )
+        self._embed_image(
+            charts.theme_weekly,
+            "Рис. 1 — Динамика публикаций по темам (главная тема на источник)",
+            height_mm=84,
+        )
+
+        self.add_page()
+        self._embed_image(
+            charts.theme_totals,
+            "Рис. 2 — Объём публикаций по темам за квартал",
+            height_mm=78,
+        )
+
+        self._ensure_space(72)
+        half_w = (self.w - self.l_margin - self.r_margin - 6) / 2
+        y_row = self.get_y()
+        self.image(str(charts.source_formats), x=self.l_margin, y=y_row, w=half_w, h=62)
+        self.image(
+            str(charts.theme_by_format),
+            x=self.l_margin + half_w + 6,
+            y=y_row,
+            w=half_w,
+            h=62,
+        )
+        self.set_y(y_row + 66)
+        self.set_font("Body", "", 8)
+        self.set_text_color(*COLORS["muted"])
+        self.set_x(self.l_margin)
+        self.cell(half_w, 4, "Рис. 3 — Формат публикаций (тип источника)", align="C")
+        self.set_x(self.l_margin + half_w + 6)
+        self.cell(half_w, 4, "Рис. 4 — Тема × формат", align="C")
+        self.set_text_color(0, 0, 0)
+        self.ln(8)
+
     def threat_landscape(self) -> None:
         self.add_page()
         self._section_title("Ландшафт угроз")
@@ -333,24 +391,55 @@ class TendenciaPDF(FPDF):
             self.ln(2)
 
 
+def write_pdf_safe(pdf: FPDF, output_path: Path) -> tuple[Path, str | None]:
+    """Сохранить PDF; при блокировке файла — записать в версию с timestamp."""
+    output_path = output_path.resolve()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    fd, tmp_name = tempfile.mkstemp(suffix=".pdf.tmp", dir=output_path.parent)
+    os.close(fd)
+    tmp_path = Path(tmp_name)
+    try:
+        pdf.output(str(tmp_path))
+        try:
+            os.replace(tmp_path, output_path)
+            return output_path, None
+        except PermissionError:
+            fallback = output_path.with_name(
+                f"{output_path.stem}-{datetime.now().strftime('%Y%m%d-%H%M%S')}{output_path.suffix}"
+            )
+            os.replace(tmp_path, fallback)
+            return fallback, (
+                f"Файл {output_path.name} занят (вероятно, открыт в просмотрщике). "
+                f"Сохранено как {fallback.name}"
+            )
+    except Exception:
+        tmp_path.unlink(missing_ok=True)
+        raise
+    finally:
+        if tmp_path.exists():
+            tmp_path.unlink(missing_ok=True)
+
+
 def generate_pdf(
     quarter: Quarter,
     trends: list[TrendItem],
     sources: list[SourceItem],
     output_path: Path,
-) -> Path:
-    """Создать подробный PDF-отчёт."""
+) -> tuple[Path, str | None]:
+    """Создать подробный PDF-отчёт. Возвращает путь и опциональное предупреждение."""
+    charts = generate_charts(quarter, sources)
     pdf = TendenciaPDF(quarter, len(sources))
     pdf.alias_nb_pages()
 
     pdf.cover_page()
     pdf.executive_summary(trends)
+    pdf.analytics_charts(charts, quarter)
     pdf.threat_landscape()
     pdf.trend_details(trends)
     pdf.recommendations()
     pdf.metrics_and_questions()
     pdf.sources_appendix(sources)
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    pdf.output(str(output_path))
-    return output_path
+    saved_path, warning = write_pdf_safe(pdf, output_path)
+    return saved_path, warning

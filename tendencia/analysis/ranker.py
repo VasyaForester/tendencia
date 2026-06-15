@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 
 from tendencia.models import SourceItem
+from tendencia.taxonomy import detect_themes, load_theme_definitions
 
 SOURCE_TYPE_WEIGHT = {
     "gov_cert": 1.0,
@@ -24,13 +25,7 @@ SECURITY_TERMS = re.compile(
 )
 
 
-def _topic_match(text: str, keywords: list[str]) -> bool:
-    lower = text.lower()
-    return any(kw.lower() in lower for kw in keywords)
-
-
 def rank_and_tag_sources(sources: list[SourceItem], topics_cfg: dict) -> list[SourceItem]:
-    must_include = topics_cfg.get("must_include", [])
     ranked: list[SourceItem] = []
 
     for src in sources:
@@ -39,11 +34,8 @@ def rank_and_tag_sources(sources: list[SourceItem], topics_cfg: dict) -> list[So
         if SECURITY_TERMS.search(blob):
             score += 0.15
 
-        matched: list[str] = []
-        for topic in must_include:
-            if _topic_match(blob, topic.get("keywords", [])):
-                matched.append(topic["id"])
-                score += 0.25
+        matched = sorted(detect_themes(src, topics_cfg))
+        score += 0.2 * min(len(matched), 3)
 
         src.matched_topics = matched
         src.relevance_score = round(min(score, 1.5), 3)

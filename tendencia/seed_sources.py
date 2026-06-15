@@ -23,7 +23,7 @@ Q2_2026_SEEDS: list[SourceItem] = [
         source_type="gov_cert",
         origin="Cloud Security Alliance",
         relevance_score=1.45,
-        matched_topics=["agent_tools"],
+        matched_topics=["agent_tools", "model_supply_chain"],
     ),
     SourceItem(
         title="CVE-2026-30615: Windsurf Zero-Click MCP Prompt Injection RCE",
@@ -33,7 +33,7 @@ Q2_2026_SEEDS: list[SourceItem] = [
         source_type="incidents",
         origin="PolicyLayer / OX Security",
         relevance_score=1.5,
-        matched_topics=["agent_tools"],
+        matched_topics=["agent_tools", "prompt_injection"],
     ),
     SourceItem(
         title="MCP Is the New Supply Chain (Lorikeet Security)",
@@ -43,7 +43,7 @@ Q2_2026_SEEDS: list[SourceItem] = [
         source_type="news",
         origin="Lorikeet Security",
         relevance_score=1.35,
-        matched_topics=["agent_tools"],
+        matched_topics=["agent_tools", "model_supply_chain"],
     ),
     SourceItem(
         title="State of MCP Security Audit — June 2026",
@@ -83,7 +83,7 @@ Q2_2026_SEEDS: list[SourceItem] = [
         source_type="vendor",
         origin="Palo Alto Unit 42",
         relevance_score=1.3,
-        matched_topics=["self_evolving_agents", "prompt_injection"],
+        matched_topics=["self_evolving_agents", "rag_data_layer", "prompt_injection"],
     ),
     SourceItem(
         title="AI Act: Digital Omnibus agreement (European Parliament)",

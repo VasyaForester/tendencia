@@ -165,19 +165,22 @@ def cmd_pdf(args: argparse.Namespace) -> int:
         return 1
 
     out = Path(args.output) if args.output else pdf_path(quarter)
-    generate_pdf(quarter, trends, sources, out)
-    console.print(f"[green]PDF: {out}[/green]")
+    saved, warning = generate_pdf(quarter, trends, sources, out)
+    if warning:
+        console.print(f"[yellow]{warning}[/yellow]")
+    console.print(f"[green]PDF: {saved}[/green]")
 
     if args.open:
         import os
         import subprocess
 
+        target = saved
         if sys.platform == "win32":
-            os.startfile(out)  # type: ignore[attr-defined]
+            os.startfile(target)  # type: ignore[attr-defined]
         elif sys.platform == "darwin":
-            subprocess.run(["open", str(out)], check=False)
+            subprocess.run(["open", str(target)], check=False)
         else:
-            subprocess.run(["xdg-open", str(out)], check=False)
+            subprocess.run(["xdg-open", str(target)], check=False)
     return 0
 
 

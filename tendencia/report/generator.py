@@ -79,10 +79,10 @@ CURATED_Q2_2026: dict[str, dict[str, str]] = {
         "changed_vs_prev_quarter_ru": "Zero-click IDE RCE и CVE-цепочки — качественный скачок vs Q1 advisory-only.",
         "confidence": "High",
     },
-    "rag_attacks": {
+    "rag_data_layer": {
         "summary_ru": (
-            "RAG остаётся data-layer attack surface: document injection и memory summarization "
-            "превращают «факты» в инструкции. Unit 42 и AWS Bedrock case studies показывают "
+            "RAG и слой данных остаются отдельной attack surface: document injection и memory "
+            "summarization превращают «факты» в инструкции. Unit 42 и AWS Bedrock case studies показывают "
             "приоритет memory над user prompt."
         ),
         "why_matters_ru": "Model-level guardrails не спасают, если poisoned chunk попадает в retrieval.",
@@ -90,18 +90,17 @@ CURATED_Q2_2026: dict[str, dict[str, str]] = {
         "changed_vs_prev_quarter_ru": "Больше PoC на long-term memory, не только single-turn RAG.",
         "confidence": "Medium",
     },
-    "mcp_supply_chain": {
+    "model_supply_chain": {
         "summary_ru": (
-            "MCP supply chain: 30+ CVE за 60 дней 2026, тысячи exposed servers (Shodan), 24k secrets "
-            "в публичных mcp-конфигах (GitGuardian). North Korean npm hijack внедрял rogue MCP server "
-            "в конфиги Claude/Cursor/Windsurf."
+            "Supply chain skills/MCP/артефактов: 30+ CVE за 60 дней 2026, тысячи exposed servers (Shodan), "
+            "24k secrets в публичных mcp-конфигах (GitGuardian). North Korean npm hijack внедрял rogue MCP server."
         ),
         "why_matters_ru": "Третья сторона в agent stack так же критична, как зависимости в CI/CD.",
         "who_affected_ru": "AppSec, platform engineering, procurement third-party AI tools.",
         "changed_vs_prev_quarter_ru": "Первый квартал с массовой CVE-нумерацией именно для MCP ecosystem.",
         "confidence": "High",
     },
-    "agent_gateways": {
+    "agent_runtime_governance": {
         "summary_ru": (
             "Ответ индустрии: enforcement на transport layer — agent gateways, default-deny tool policy, "
             "JSON-RPC filtering, allowlist STDIO binaries. Сдвиг от «надеемся на LLM safety» к "
@@ -111,36 +110,6 @@ CURATED_Q2_2026: dict[str, dict[str, str]] = {
         "who_affected_ru": "Security architects внедряющих agentic AI.",
         "changed_vs_prev_quarter_ru": "Vs Q1: зрелые product/category «agent gateway» и CSA red teaming guides.",
         "confidence": "Medium",
-    },
-    "incidents": {
-        "summary_ru": (
-            "Инцидентный слой Q2: Windsurf CVE-2026-30615, LiteLLM CVE-2026-30623, массовые registry "
-            "poisoning cases. Паттерн: AI assistant как канал exfil и persistence."
-        ),
-        "why_matters_ru": "Реальные CVE переводят agent risk из теории в patch Tuesday.",
-        "who_affected_ru": "Endpoint security, IT, разработчики на AI IDEs.",
-        "changed_vs_prev_quarter_ru": "Количество critical CVE по agent tooling выросло кратно vs Q1.",
-        "confidence": "High",
-    },
-    "zombie_memory": {
-        "summary_ru": (
-            "Пересечение self-evolving + injection: «zombie» persistence в memory ботнет-подобных "
-            "агентов, sleeper payloads в benign sessions."
-        ),
-        "why_matters_ru": "IR сложнее: компрометация не привязана к одной сессии.",
-        "who_affected_ru": "SOC/IR, платформы с shared agent memory.",
-        "changed_vs_prev_quarter_ru": "Новая таксономия атак (arxiv 2602.15654) в Q2 discourse.",
-        "confidence": "Medium",
-    },
-    "emerging_signals": {
-        "summary_ru": (
-            "Смежные сигналы: autonomous coding worms, multi-agent trust boundaries, "
-            "continuous runtime monitoring для policy drift."
-        ),
-        "why_matters_ru": "Ранние индикаторы трендов H2 2026.",
-        "who_affected_ru": "Threat intel, R&D security.",
-        "changed_vs_prev_quarter_ru": "Пока слабее подтверждены количественно.",
-        "confidence": "Low",
     },
 }
 
