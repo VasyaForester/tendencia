@@ -32,7 +32,7 @@ def _best_sources_for_theme(
         s
         for s in explicit
         if s.relevance_score >= 1.15
-        or s.source_type in ("gov_cert", "standards", "papers", "vendor", "incidents")
+        or s.source_type in ("gov_cert", "standards", "papers", "vendor", "incidents", "user_upload")
     ]
     pool = primary or explicit or matched
     return sorted(pool, key=lambda s: s.relevance_score, reverse=True)

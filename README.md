@@ -5,6 +5,7 @@
 ## Возможности
 
 - Сбор источников: **RSS** (CISA, vendors, OWASP), **arXiv**, **DuckDuckGo**
+- **Пользовательские ссылки и PDF** — включаются в аналитику наряду с автопоиском
 - Фильтрация по кварталу (`2026-Q2` = 2026-04-01 … 2026-06-30)
 - Тегирование по приоритетным темам (self-evolving agents, AI Act, MCP/skills)
 - Markdown-отчёт для **executive/CISO** на русском языке
@@ -37,8 +38,24 @@ tendencia run --quarter 2026-Q2
 | `tendencia pdf --quarter 2026-Q2` | Подробный PDF-отчёт |
 | `tendencia pdf --open` | PDF и открыть в просмотрщике |
 | `tendencia pdf -o my-report.pdf` | PDF в указанный файл |
+| `tendencia upload link URL` | Добавить ссылку вручную |
+| `tendencia upload pdf file.pdf` | Загрузить PDF (текст извлекается автоматически) |
+| `tendencia upload list` | Список пользовательских материалов |
+| `tendencia upload remove ID` | Удалить загрузку |
+| `tendencia collect --no-search` | Только загрузки + seed, без интернет-поиска |
 
 PDF включает графики по **темам** (отдельно) и **форматам публикаций** (отдельно), плюс матрицу «тема × формат».
+
+## Пользовательские материалы
+
+```bash
+tendencia upload link https://example.com/advisory --quarter 2026-Q2
+tendencia upload pdf ./docs/whitepaper.pdf --title "MCP Security Whitepaper"
+tendencia upload list --quarter 2026-Q2
+tendencia report --quarter 2026-Q2   # загрузки подхватятся автоматически
+```
+
+Файлы хранятся в `data/<quarter>/uploads/` (manifest + копии PDF).
 
 ## Конфигурация
 

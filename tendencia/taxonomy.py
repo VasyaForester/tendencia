@@ -14,6 +14,7 @@ SOURCE_FORMAT_LABELS: dict[str, str] = {
     "incidents": "Отчёты об инцидентах / CVE",
     "news": "Новости и обзоры",
     "social": "Соцсети / конференции",
+    "user_upload": "Пользовательские материалы",
     "unknown": "Прочее",
 }
 
@@ -25,6 +26,7 @@ SOURCE_FORMAT_ORDER = [
     "incidents",
     "news",
     "social",
+    "user_upload",
     "unknown",
 ]
 
@@ -46,6 +48,7 @@ FORMAT_CHART_COLORS: dict[str, str] = {
     "incidents": "#E53E3E",
     "news": "#63B3ED",
     "social": "#90CDF4",
+    "user_upload": "#ED8936",
     "unknown": "#CBD5E0",
 }
 

@@ -7,3 +7,4 @@ python-dateutil>=2.9.0
 rich>=13.7.0
 fpdf2>=2.8.0
 matplotlib>=3.8.0
+pypdf>=4.0.0

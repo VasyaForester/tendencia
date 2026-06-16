@@ -1,41 +1,16 @@
 [
   {
-    "title": "RAILS: Verification-Native Clearing For Agentic Commerce",
-    "url": "https://arxiv.org/abs/2606.08790v1",
-    "published": "2026-06-07",
-    "summary": "Autonomous agents negotiate, purchase, deploy code, and move funds, but no neutral mechanism determines whether they\n  met their delegated obligation, who is responsible when they did not, or which settlement action follows. This is the\n  agentic clearing problem. Tool protocols (MCP), inter-agent communication (A2A), payment rails (x402), mandate and\n  network agent protocols (AP2, Visa, Mastercard), and settlement-risk standards each assume that determination and none\n  produce it.\n  Clearing …",
-    "source_type": "papers",
-    "origin": "arXiv",
+    "title": "MCP Security Crisis: Systemic Design (CSA)",
+    "url": "https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/05/CSA_research_note_MCP_security_crisis_20260504-csa-styled.pdf",
+    "published": "2026-05-04",
+    "summary": "CSA: системные риски MCP, tool poisoning, cross-server shadowing.",
+    "source_type": "standards",
+    "origin": "Cloud Security Alliance",
     "relevance_score": 1.5,
     "matched_topics": [
-      "self_evolving_agents",
-      "agent_tools"
-    ]
-  },
-  {
-    "title": "VATS: Exploiting Implicit Authority in Error-Path Injection via Systematic Mutation",
-    "url": "https://arxiv.org/abs/2606.07992v1",
-    "published": "2026-06-06",
-    "summary": "As the Model Context Protocol (MCP) standardizes tool-calling for autonomous agents, it introduces a critical, unexamined attack surface: the error-handling loop. We hypothesize that tool error messages possess implicit authority, triggering corrective reasoning modes that bypass standard safety heuristics. We introduce VATS (Vulnerability Analysis of Tool Streams), a mutation-driven framework that systematically evolves adversarial payloads across seven structural and linguistic dimensions. Our…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.5,
-    "matched_topics": [
-      "self_evolving_agents",
-      "agent_tools"
-    ]
-  },
-  {
-    "title": "From Privacy to Workflow Integrity: Communication-Graph Metadata in Autonomous Agent Interoperability",
-    "url": "https://arxiv.org/abs/2606.07150v1",
-    "published": "2026-06-05",
-    "summary": "Agent-interoperability protocols such as A2A and MCP standardize what agents say to one another, but assume address-based transport over HTTP(S). Such transports protect message content, increasingly with end-to-end encryption. What they leave in the clear is the communication graph: which agent contacts which, when, and how often. In agent systems this graph is more consequential than a privacy framing suggests. Endpoints are often capability-labeled, workflows are structured and chained, and i…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.5,
-    "matched_topics": [
-      "self_evolving_agents",
-      "agent_tools"
+      "agent_tools",
+      "prompt_injection",
+      "rag_data_layer"
     ]
   },
   {
@@ -45,33 +20,24 @@
     "summary": "STDIO transport, CVE-2026-30623 (LiteLLM), zero-click IDE attacks.",
     "source_type": "gov_cert",
     "origin": "Cloud Security Alliance",
-    "relevance_score": 1.4,
+    "relevance_score": 1.5,
     "matched_topics": [
-      "agent_tools"
+      "agent_tools",
+      "model_supply_chain"
     ]
   },
   {
-    "title": "AI Act: Digital Omnibus agreement (European Parliament)",
-    "url": "https://www.europarl.europa.eu/pdfs/news/expert/2026/5/press_release/20260427IPR42011/20260427IPR42011_en.pdf",
-    "published": "2026-05-07",
-    "summary": "Перенос high-risk obligations до Dec 2027 / Aug 2028; упрощение compliance.",
-    "source_type": "gov_cert",
-    "origin": "European Parliament",
-    "relevance_score": 1.4,
+    "title": "When AI Remembers Too Much (Unit 42)",
+    "url": "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/",
+    "published": "2026-05-01",
+    "summary": "Poisoning long-term memory агентов, persistent malicious instructions.",
+    "source_type": "vendor",
+    "origin": "Palo Alto Unit 42",
+    "relevance_score": 1.5,
     "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "MCP Security Crisis: Systemic Design (CSA)",
-    "url": "https://labs.cloudsecurityalliance.org/wp-content/uploads/2026/05/CSA_research_note_MCP_security_crisis_20260504-csa-styled.pdf",
-    "published": "2026-05-04",
-    "summary": "CSA: системные риски MCP, tool poisoning, cross-server shadowing.",
-    "source_type": "standards",
-    "origin": "Cloud Security Alliance",
-    "relevance_score": 1.35,
-    "matched_topics": [
-      "agent_tools"
+      "prompt_injection",
+      "rag_data_layer",
+      "self_evolving_agents"
     ]
   },
   {
@@ -81,9 +47,10 @@
     "summary": "Требования к cybersecurity high-risk AI: poisoning, adversarial examples.",
     "source_type": "standards",
     "origin": "EU AI Act",
-    "relevance_score": 1.35,
+    "relevance_score": 1.5,
     "matched_topics": [
-      "ai_regulation"
+      "ai_regulation",
+      "rag_data_layer"
     ]
   },
   {
@@ -93,9 +60,203 @@
     "summary": "OX Security advisory: prompt injection → mcp.json overwrite → RCE.",
     "source_type": "incidents",
     "origin": "PolicyLayer / OX Security",
-    "relevance_score": 1.3,
+    "relevance_score": 1.45,
     "matched_topics": [
-      "agent_tools"
+      "agent_tools",
+      "prompt_injection"
+    ]
+  },
+  {
+    "title": "From Shield to Target: Denial-of-Service Attacks on LLM-Based Agent Guardrails",
+    "url": "https://arxiv.org/abs/2606.14517",
+    "published": "2026-06-15",
+    "summary": "arXiv:2606.14517v1 Announce Type: new \nAbstract: LLM-based guardrails have emerged as a highly effective defense against prompt injection and jailbreak attacks in autonomous agents. However, we reveal that the very reasoning and task-following capabilities enabling this protection introduce a novel vulnerability: attackers can inject crafted data to trap the guardrail in extended reasoning loops, effectuating a systematic denial-of-service (DoS) attack. To systematically expose this threat, we d…",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "prompt_injection",
+      "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "Patcher: Post-Hoc Patching of Backdoored Large Language Models",
+    "url": "https://arxiv.org/abs/2606.02995",
+    "published": "2026-06-15",
+    "summary": "arXiv:2606.02995v2 Announce Type: replace \nAbstract: Large language models remain vulnerable to jailbreak backdoor attacks, where adversaries poison safety alignment data to embed hidden triggers that bypass safety mechanisms. Existing defenses often require comprehensive attack information or multiple triggered examples, making them impractical when defenders only observe a single reported failure case without knowing whether it stems from a backdoor attack or a natural alignment bug. This pape…",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "model_supply_chain",
+      "prompt_injection"
+    ]
+  },
+  {
+    "title": "From Shield to Target: Denial-of-Service Attacks on LLM-Based Agent Guardrails",
+    "url": "https://arxiv.org/abs/2606.14517v1",
+    "published": "2026-06-12",
+    "summary": "LLM-based guardrails have emerged as a highly effective defense against prompt injection and jailbreak attacks in autonomous agents. However, we reveal that the very reasoning and task-following capabilities enabling this protection introduce a novel vulnerability: attackers can inject crafted data to trap the guardrail in extended reasoning loops, effectuating a systematic denial-of-service (DoS) attack. To systematically expose this threat, we design a beam-search optimization framework that c…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "prompt_injection",
+      "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "Smarter Saboteurs, Better Fixers: Scaling & Security in Linear Multi-Agent Workflows",
+    "url": "https://arxiv.org/abs/2606.12709v1",
+    "published": "2026-06-10",
+    "summary": "As LLM-based multi-agent systems (MAS) are deployed in the wild, the resilience of their collaboration structures against adversarial compromise becomes a critical safety concern. Attackers may leverage prompt-injection or jailbreaking to sabotage individual agents within MAS workflows, but the interaction between model scaling and system-level resilience remains poorly understood. This paper investigates how model scale affects the security of linear multi-agent workflows. Our experiments acros…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "prompt_injection",
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "SMSR: Certified Defence Against Runtime Memory Poisoning in Persistent LLM Agent Systems",
+    "url": "https://arxiv.org/abs/2606.12703v1",
+    "published": "2026-06-10",
+    "summary": "Retrieval-augmented generation (RAG) agents increasingly run with persistent memory that accumulates across user sessions. This creates a new attack surface: an adversary interacting only through normal channels can inject crafted memories that, once retrieved, steer the agent's responses for future users, without touching model weights or code. We call this Multi-Session Memory Poisoning (MSMP) and show that no existing defence certifies against it; static-corpus defences (RobustRAG, Reliabilit…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "model_supply_chain",
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "Beyond Attack Success Rate: Examining Trigger Leakage in Vision-Language Agentic Systems",
+    "url": "https://arxiv.org/abs/2606.12586v1",
+    "published": "2026-06-10",
+    "summary": "Vision-Language Agentic Systems (VLAS) connect visual perception to planning, tool use, and physical actions. This means backdoor-type triggers can propagate through both decision pipelines and their connected interfaces, thus making visual backdoors a system-level threat. Current evaluations on such backdoors focus on clean accuracy and attack success rate (ASR), metrics that capture whether a trigger works, but not whether an attack is actually \"precise\" -- i.e. whether it triggers hidden beha…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "agent_tools",
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "GitInject: Real-World Prompt Injection Attacks in AI-Powered CI/CD Pipelines",
+    "url": "https://arxiv.org/abs/2606.09935v1",
+    "published": "2026-06-07",
+    "summary": "AI-powered agents are increasingly embedded in continuous integration and continuous delivery/deployment (CI/CD) pipelines to autonomously review pull requests (PRs), triage issues, and maintain codebases. These agents ingest untrusted content while operating with elevated repository permissions, making them a natural target for prompt injection attacks with supply chain consequences. We present GitInject, an open-source framework for evaluating prompt injection vulnerabilities in real, live Git…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "model_supply_chain",
+      "prompt_injection"
+    ]
+  },
+  {
+    "title": "RAILS: Verification-Native Clearing For Agentic Commerce",
+    "url": "https://arxiv.org/abs/2606.08790v1",
+    "published": "2026-06-07",
+    "summary": "Autonomous agents negotiate, purchase, deploy code, and move funds, but no neutral mechanism determines whether they\n  met their delegated obligation, who is responsible when they did not, or which settlement action follows. This is the\n  agentic clearing problem. Tool protocols (MCP), inter-agent communication (A2A), payment rails (x402), mandate and\n  network agent protocols (AP2, Visa, Mastercard), and settlement-risk standards each assume that determination and none\n  produce it.\n  Clearing …",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "agent_tools",
+      "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "VATS: Exploiting Implicit Authority in Error-Path Injection via Systematic Mutation",
+    "url": "https://arxiv.org/abs/2606.07992v1",
+    "published": "2026-06-06",
+    "summary": "As the Model Context Protocol (MCP) standardizes tool-calling for autonomous agents, it introduces a critical, unexamined attack surface: the error-handling loop. We hypothesize that tool error messages possess implicit authority, triggering corrective reasoning modes that bypass standard safety heuristics. We introduce VATS (Vulnerability Analysis of Tool Streams), a mutation-driven framework that systematically evolves adversarial payloads across seven structural and linguistic dimensions. Our…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "agent_tools",
+      "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "From Privacy to Workflow Integrity: Communication-Graph Metadata in Autonomous Agent Interoperability",
+    "url": "https://arxiv.org/abs/2606.07150v1",
+    "published": "2026-06-05",
+    "summary": "Agent-interoperability protocols such as A2A and MCP standardize what agents say to one another, but assume address-based transport over HTTP(S). Such transports protect message content, increasingly with end-to-end encryption. What they leave in the clear is the communication graph: which agent contacts which, when, and how often. In agent systems this graph is more consequential than a privacy framing suggests. Endpoints are often capability-labeled, workflows are structured and chained, and i…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "agent_tools",
+      "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Development?",
+    "url": "https://arxiv.org/abs/2606.04455v1",
+    "published": "2026-06-03",
+    "summary": "Current AI benchmarks evaluate agents on task execution within human-designed workflows. These evaluations fundamentally fail to measure a critical next-level capability: whether models can autonomously develop agent systems. We introduce the Meta-Agent Challenge (MAC), an evaluation framework designed to test the capacity of frontier models for autonomous agent development. Specifically, a code agent (the meta-agent) is given a sandboxed environment, an evaluation API, and a time limitation to …",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "agent_runtime_governance",
+      "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "Zombie Agents: Persistent Control of Self-Evolving LLM Agents",
+    "url": "https://arxiv.org/pdf/2602.15654",
+    "published": "2026-02-15",
+    "summary": "Self-reinforcing memory injection, persistent cross-session control.",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.4,
+    "matched_topics": [
+      "rag_data_layer",
+      "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "Supply Chain Compromises Impact Nx Console and GitHub Repositories",
+    "url": "https://www.cisa.gov/news-events/alerts/2026/05/28/supply-chain-compromises-impact-nx-console-and-github-repositories",
+    "published": "2026-05-28",
+    "summary": "<p>CISA is prioritizing the response to multiple emerging software supply chain intrusion campaigns targeting developer ecosystems Continuous Integration/Continuous Development (CI/CD) pipelines. These recent incidents, including the GitHub compromise via a malicious Nx Console Visual Studio Code (VS Code) extension and the “Megalodon” supply chain intrusion campaign, demonstrate how cyber threat actors are abusing tools and processes that support enterprise, cloud, and DevOps environments—speci…",
+    "source_type": "gov_cert",
+    "origin": "CISA Cybersecurity Advisories",
+    "relevance_score": 1.35,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "Malicious npm packages abuse dependency confusion to profile developer environments",
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/",
+    "published": "2026-05-30",
+    "summary": "<p>A dependency confusion campaign leveraged 33 malicious npm packages to collect reconnaissance data from developer and build environments. This report details the attack chain, observed tradecraft, and detection opportunities to help organizations identify and disrupt related activity.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/\">Malicious npm packages abuse dependency con…",
+    "source_type": "vendor",
+    "origin": "Microsoft Security Blog",
+    "relevance_score": 1.35,
+    "matched_topics": [
+      "model_supply_chain",
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "AI Act: Digital Omnibus agreement (European Parliament)",
+    "url": "https://www.europarl.europa.eu/pdfs/news/expert/2026/5/press_release/20260427IPR42011/20260427IPR42011_en.pdf",
+    "published": "2026-05-07",
+    "summary": "Перенос high-risk obligations до Dec 2027 / Aug 2028; упрощение compliance.",
+    "source_type": "gov_cert",
+    "origin": "European Parliament",
+    "relevance_score": 1.35,
+    "matched_topics": [
+      "ai_regulation"
     ]
   },
   {
@@ -105,7 +266,7 @@
     "summary": "<p><a href=\"https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-162-03.json\"><strong>View CSAF</strong></a></p>\n<h2>Summary</h2>\n<p><strong>Successful exploitation of these vulnerabilities could allow a remote unauthenticated attacker to gain unauthorized access to live video feeds, retrieve sensitive visual information from affected premises, and obtain administrative control of the device.</strong></p>\n<p>The following versions of Brickcom Cameras are affected:</p>\n<u…",
     "source_type": "gov_cert",
     "origin": "CISA Cybersecurity Advisories",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -117,7 +278,7 @@
     "summary": "<p><a href=\"https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-148-02.json\"><strong>View CSAF</strong></a></p>\n<h2>Summary</h2>\n<p><strong>Successful exploitation of this vulnerability could result in an attacker gaining administrator access to the device.</strong></p>\n<p>The following versions of Jinan USR IOT Technology Limited (PUSR) USR-W610 RS232/485 to Wi-Fi/Ethernet Converter are affected:</p>\n<ul>\n<li>USR-W610 RS232/485 to Wi-Fi/Ethernet Converter 7.03T.07</li>…",
     "source_type": "gov_cert",
     "origin": "CISA Cybersecurity Advisories",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -129,7 +290,7 @@
     "summary": "<p><a href=\"https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-148-01.json\"><strong>View CSAF</strong></a></p>\n<h2>Summary</h2>\n<p><strong>Successful exploitation of these vulnerabilities could result in an attacker gaining administrator access to the device.</strong></p>\n<p>The following versions of MacGregor Voyage Data Recorder (VDR) G4e are affected:</p>\n<ul>\n<li>MacGregor Voyage Data Recorder (VDR) G4e &lt;V5.250</li>\n</ul>\n<div class=\"csaf-table\">\n<table class=\"t…",
     "source_type": "gov_cert",
     "origin": "CISA Cybersecurity Advisories",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -141,7 +302,7 @@
     "summary": "<p><a href=\"https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-148-08.json\"><strong>View CSAF</strong></a></p>\n<h2>Summary</h2>\n<p><strong>Successful exploitation of these vulnerabilities could allow an attacker to gain administrator rights or execute code on the affected device.</strong></p>\n<p>The following versions of XCharge C6 are affected:</p>\n<ul>\n<li>C6</li>\n</ul>\n<div class=\"csaf-table\">\n<table class=\"tablesaw tablesaw-stack\">\n<thead>\n<tr>\n<th>CVSS</th>\n<th>Ve…",
     "source_type": "gov_cert",
     "origin": "CISA Cybersecurity Advisories",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -153,9 +314,33 @@
     "summary": "<p><a href=\"https://github.com/cisagov/CSAF/blob/develop/csaf_files/OT/white/2026/icsa-26-148-05.json\"><strong>View CSAF</strong></a></p>\n<h2>Summary</h2>\n<p><strong>Successful exploitation of this vulnerability allows an attacker's malicious script to execute in the browser of any authenticated user or administrator who accesses the affected interface. This could lead to compromise of user sessions, execution of unauthorized actions with the victim's privileges, exposure or manipulation of sens…",
     "source_type": "gov_cert",
     "origin": "CISA Cybersecurity Advisories",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
+    ]
+  },
+  {
+    "title": "Software Dark Matter: Gazing at Uncharted Files to Navigate SBOM Integrations",
+    "url": "https://arxiv.org/abs/2606.13966",
+    "published": "2026-06-15",
+    "summary": "arXiv:2606.13966v1 Announce Type: new \nAbstract: Modern software supply chains have evolved into vast, heterogeneous networks where transparency - the granular understanding of all software components - is now a critical security requirement. While Software Bills of Materials (SBOMs) have emerged as the primary mechanism for this transparency, current industry practices rely on a metadata-centric paradigm that assumes an artifact is defined solely by its package manager declarations. We posit th…",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "Defending the Core: A Centrality-Based Protection Strategy for Supply Chain Security in npm Dependency Network",
+    "url": "https://arxiv.org/abs/2606.14036",
+    "published": "2026-06-15",
+    "summary": "arXiv:2606.14036v1 Announce Type: new \nAbstract: The modern software supply chain, taking Node Package Manager (npm) dependency network for example, relies heavily on shared open-source dependencies. While this promotes rapid development, it introduces systemic vulnerabilities as well. Concerning this potential risk, we analyze the npm dependency network by modeling 53,481 packages and 78,520 dependency edges, and classify the network as a scale-free topology. Thus, we demonstrate its inherent v…",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "model_supply_chain"
     ]
   },
   {
@@ -165,7 +350,7 @@
     "summary": "arXiv:2606.14154v1 Announce Type: new \nAbstract: Large language model (LLM) agents increasingly extend their capabilities at runtime by loading Agent Skills, which pair natural-language specifications (SKILL.md) with executable scripts and resources. Because a skill's behavior relies on both natural-language instructions and executable code, assessing its safety requires cross-modal reasoning, creating a new language-and-code attack surface. Attackers can present a benign workflow in SKILL.md wh…",
     "source_type": "papers",
     "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "agent_tools"
     ]
@@ -177,33 +362,57 @@
     "summary": "arXiv:2606.14395v1 Announce Type: new \nAbstract: In contemporary IoT edge devices with real-time requirements, security is primarily enforced through design-time parameters associated with security tasks, leading to mechanisms that operate in an \\emph{opportunistic} manner. As a result, security checks are often performed as secondary operations. This approach can result in systems where no security tasks are executed due to high utilization by other tasks. An alternative approach taken in prior…",
     "source_type": "papers",
     "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
   },
   {
-    "title": "From Shield to Target: Denial-of-Service Attacks on LLM-Based Agent Guardrails",
-    "url": "https://arxiv.org/abs/2606.14517",
+    "title": "NeST: Neuron Selective Tuning for LLM Safety",
+    "url": "https://arxiv.org/abs/2602.16835",
     "published": "2026-06-15",
-    "summary": "arXiv:2606.14517v1 Announce Type: new \nAbstract: LLM-based guardrails have emerged as a highly effective defense against prompt injection and jailbreak attacks in autonomous agents. However, we reveal that the very reasoning and task-following capabilities enabling this protection introduce a novel vulnerability: attackers can inject crafted data to trap the guardrail in extended reasoning loops, effectuating a systematic denial-of-service (DoS) attack. To systematically expose this threat, we d…",
+    "summary": "arXiv:2602.16835v2 Announce Type: replace \nAbstract: Safety alignment is essential for the responsible deployment of Large Language Models (LLMs). Yet, existing approaches often rely on heavyweight fine-tuning that is costly to update, audit, and maintain across model families. Full fine-tuning incurs substantial computational and storage overhead, while parameter-efficient methods, e.g., Low-Rank Adaptation (LoRA), trade efficiency for inconsistent safety gains and sensitivity to design choices…",
     "source_type": "papers",
     "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
-      "self_evolving_agents"
+      "rag_data_layer"
     ]
   },
   {
-    "title": "From Shield to Target: Denial-of-Service Attacks on LLM-Based Agent Guardrails",
-    "url": "https://arxiv.org/abs/2606.14517v1",
-    "published": "2026-06-12",
-    "summary": "LLM-based guardrails have emerged as a highly effective defense against prompt injection and jailbreak attacks in autonomous agents. However, we reveal that the very reasoning and task-following capabilities enabling this protection introduce a novel vulnerability: attackers can inject crafted data to trap the guardrail in extended reasoning loops, effectuating a systematic denial-of-service (DoS) attack. To systematically expose this threat, we design a beam-search optimization framework that c…",
+    "title": "Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning in LLMs",
+    "url": "https://arxiv.org/abs/2606.10322",
+    "published": "2026-06-15",
+    "summary": "arXiv:2606.10322v2 Announce Type: replace \nAbstract: Large Language Models (LLMs) in multi-turn interactions maintain evolving context rather than generating isolated responses, making them vulnerable to prompt-injection and context-poisoning attacks in which locally plausible adversarial fragments gradually distort reasoning trajectories. Existing defenses mainly filter individual outputs and often ignore context evolution across turns, leaving long-horizon reasoning exposed. Although the Model…",
     "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.25,
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.2,
     "matched_topics": [
-      "self_evolving_agents"
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "RedAct: Redacting Agent Capability Traces for Procedural Skill Protection",
+    "url": "https://arxiv.org/abs/2606.10813",
+    "published": "2026-06-15",
+    "summary": "arXiv:2606.10813v3 Announce Type: replace \nAbstract: Users rely on execution traces to observe agent behavior, diagnose failures, and ensure accountability. These traces contain rich procedural detail, including tool invocations, intermediate decisions, and error-recovery logic. Yet this detail can expose private procedural skills, allowing downstream methods to recover key formulas, thresholds, and strategies without access to model weights or skill files. To quantify this risk and evaluate pro…",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "The Insurability Frontier of AI Risk: Mapping Threats to Affirmative Coverage, Silent Exposures, and Exclusions",
+    "url": "https://arxiv.org/abs/2605.18784",
+    "published": "2026-06-15",
+    "summary": "arXiv:2605.18784v2 Announce Type: replace-cross \nAbstract: The rapid diffusion of agentic AI has created a new coverage problem for commercial insurance: some AI-mediated losses are now affirmatively insured, some create silent-AI exposure under legacy cyber, technology errors-and-omissions (E&amp;O), directors-and-officers (D&amp;O), employment practices liability (EPLI), crime, and media policies, and others are being actively excluded.\n  This paper maps that emerging boundary by coding 55 AI …",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "rag_data_layer"
     ]
   },
   {
@@ -213,21 +422,57 @@
     "summary": "Large language model (LLM) agents increasingly extend their capabilities at runtime by loading Agent Skills, which pair natural-language specifications (SKILL.md) with executable scripts and resources. Because a skill's behavior relies on both natural-language instructions and executable code, assessing its safety requires cross-modal reasoning, creating a new language-and-code attack surface. Attackers can present a benign workflow in SKILL.md while embedding implicit directives that steer the …",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "agent_tools"
     ]
   },
   {
-    "title": "Beyond Attack Success Rate: Examining Trigger Leakage in Vision-Language Agentic Systems",
-    "url": "https://arxiv.org/abs/2606.12586v1",
-    "published": "2026-06-10",
-    "summary": "Vision-Language Agentic Systems (VLAS) connect visual perception to planning, tool use, and physical actions. This means backdoor-type triggers can propagate through both decision pipelines and their connected interfaces, thus making visual backdoors a system-level threat. Current evaluations on such backdoors focus on clean accuracy and attack success rate (ASR), metrics that capture whether a trigger works, but not whether an attack is actually \"precise\" -- i.e. whether it triggers hidden beha…",
+    "title": "Beyond Runtime Enforcement: Shield Synthesis as Defensibility Analysis for Adversarial Networks",
+    "url": "https://arxiv.org/abs/2606.13621v1",
+    "published": "2026-06-11",
+    "summary": "Shielded reinforcement learning is typically presented as a runtime safety mechanism that compiles temporal-logic specifications into automata restricting an agent's actions. We argue this is the wrong product. The same automata-theoretic machinery -- specification compilation, product game construction, attractor computation, and winning-region extraction -- is better read as a design-time analytical instrument whose outputs are structural insights about a system rather than runtime constraints…",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
-      "agent_tools"
+      "agent_runtime_governance"
+    ]
+  },
+  {
+    "title": "Who Pays the Price? Stakeholder-Centric Prompt Injection Benchmarking for Real-world Web Agents",
+    "url": "https://arxiv.org/abs/2606.13385v1",
+    "published": "2026-06-11",
+    "summary": "Web agents driven by large language models (LLMs) are increasingly deployed in real-world environments, where they operate over untrusted web content and execute actions with direct consequences. This makes them vulnerable to prompt-injection attacks, in which seemingly benign content embeds adversarial instructions that manipulate agent behaviour. Existing security benchmarks adopt an \\textit{attack-centric} perspective, focusing on the technical feasibility of injections while overlooking the …",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "prompt_injection"
+    ]
+  },
+  {
+    "title": "PolicyGuard: Towards Test-time and Step-level Adversary Defense for Reinforcement Learning Agent",
+    "url": "https://arxiv.org/abs/2606.12896v1",
+    "published": "2026-06-11",
+    "summary": "While real-world applications of reinforcement learning (RL) are becoming increasingly popular, the security of RL systems deserve more attention and exploration. In particular, recent work has revealed that RL agents are vulnerable to backdoor attacks, where a victim agent behaves normally under standard conditions but executes malicious actions when a specific trigger is activated. Existing backdoor defenses for RL either require access to the agent's internal parameters, operate only at the m…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "PI-Hunter: Automated Red-Teaming for Exposing and Localizing Prompt Injections",
+    "url": "https://arxiv.org/abs/2606.12737v1",
+    "published": "2026-06-10",
+    "summary": "Large Language Models (LLMs) are rapidly evolving into agentic systems that interact with external tools and environments, introducing new security risks such as indirect prompt injection attacks through untrusted external sources. Existing defenses mainly focus on blocking malicious content at inference time, and current red-teaming methods primarily optimize attack success. As a result, developers have limited visibility into how latent prompt injections emerge and propagate through agents. We…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "prompt_injection"
     ]
   },
   {
@@ -237,9 +482,33 @@
     "summary": "Enterprise security was built to govern data boundaries: the protected surface was data at rest and in transit, and the controls -- access control, data-loss prevention, perimeter inspection -- governed crossings of that boundary. Production AI agents dissolve this assumption. An agent reads context, calls tools, invokes connectors, and modifies systems of record on an enterprise's behalf, so risk moves inside the workflow, into sequences of individually-permitted actions that may transform a bu…",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
+    ]
+  },
+  {
+    "title": "Selection Integrity for LLM Graph Memory: An Accumulability Criterion for Information-Flow-Blind Retrieval",
+    "url": "https://arxiv.org/abs/2606.12290v1",
+    "published": "2026-06-10",
+    "summary": "Agent memory is moving to graphs, and the provenance defenses now being built for it all check one thing: the provenance of the records an agent retrieves. We show that this entire class of defense is blind by construction. A long-term graph memory runs a global selection step over writable graph structure, so structure that an untrusted principal writes changes \\emph{which} authenticated facts are selected while the cited evidence stays fully authenticated; faithful information-flow control (IF…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "Grammar-Constrained Decoding Can Jailbreak LLMs into Generating Malicious Code",
+    "url": "https://arxiv.org/abs/2606.11817v1",
+    "published": "2026-06-10",
+    "summary": "Large Language Models (LLMs) are increasingly used for code generation, raising concerns that they may be misused to produce malicious code. Meanwhile, Grammar-Constrained Decoding (GCD) has been widely adopted to improve the reliability of LLM-generated code by enforcing syntactic validity. In this paper, we reveal a counterintuitive risk: this reliability-oriented technique can itself become an attack surface. We uncover a new jailbreak attack, termed CodeSpear, that exploits GCD to induce LLM…",
+    "source_type": "papers",
+    "origin": "arXiv",
+    "relevance_score": 1.2,
+    "matched_topics": [
+      "prompt_injection"
     ]
   },
   {
@@ -249,7 +518,7 @@
     "summary": "We consider the problem of engineering autonomous intelligent agents that are capable to responsibly not comply with user requests. We argue that machine non-compliance comes in many different forms, and sketch the issues we should pursue on the road of accomplishing responsibly non-compliant intelligent machines. We anchor responsible non-compliance in justifications for task refusal, pathways to override the non-compliance, as well as careful tracking of security risks and liability transfers.",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -261,7 +530,7 @@
     "summary": "Agent skills let LLM agents reuse instructions, resources, tools, and workflows, but they also create a new place for malicious behavior to hide. A skill may look benign in its documentation or code while becoming harmful only when it is invoked with particular user requests, local assets, persistent state, or multi-step tool interactions. This makes purely static vetting brittle. We present Runtime Skill Audit (RSA), a dynamic analysis method that audits skills by asking what the skill-mediated…",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "agent_tools"
     ]
@@ -273,7 +542,7 @@
     "summary": "Agentic infrastructure introduces a critical control-plane authorization problem: non-deterministic reasoning systems can propose high-stakes mutations to production resources, yet existing security mechanisms -- such as identity and access management (IAM), policy engines, consensus protocols, and audit logs -- either enforce static, context-unaware permissions or merely record actions post-execution. This paper introduces the Sovereign Assurance Boundary (SAB), a certificate-bound runtime admi…",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -285,7 +554,7 @@
     "summary": "The convergence of the 2026 European Union Safe and Sustainable by Design (SSbD) framework, Corporate Sustainability Due Diligence Directive (CSDDD), and Carbon Border Adjustment Mechanism (CBAM) introduce a severe governance bottleneck for advanced semiconductor manufacturing facilities (\"Smart Fabs\"). Regulatory compliance demands have surpassed the capacity of manual corporate reporting, creating a direct conflict between multi-stakeholder transparency and corporate data privacy. This paper a…",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -297,7 +566,7 @@
     "summary": "Artificial Intelligence (AI) and Large Language Models (LLMs) are increasingly used in autonomous software testing; however, AI-generated test artifacts often suffer from hallucinations, compliance violations, security risks, and limited explainability. To enhance the reliability, transparency, and trustworthiness of AI-generated testing artifacts, this research introduces the concept of Governance-Aware Autonomous Testing Framework (GATF). The framework extends the autonomous testing lifecycle …",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -309,7 +578,7 @@
     "summary": "As large language model (LLM) agents are integrated into autonomous cloud operations, distributed systems face a semantic reliability problem: proposer agents can generate production mutations, such as modifying IAM policies, opening firewall security groups, or executing data exports, that are syntactically valid and statically authorized but operationally unsafe. Classical distributed consensus protocols replicate deterministic state transitions but do not evaluate the safety of the proposed i…",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
     ]
@@ -321,21 +590,9 @@
     "summary": "As autonomous LLM agents increasingly hold real credentials and operate infrastructure without a human in the loop, operators have no standard way to tell an agent that a resource is off-limits. Access controls either let the agent in (it has valid credentials) or hard-fail it (indistinguishable from any other client). We propose a third mode: a lightweight, published in-band deny signal -- the Recuse Signal -- that a server emits over a protocol's existing channels (an SSH banner, a PostgreSQL …",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "ai_regulation"
-    ]
-  },
-  {
-    "title": "The Meta-Agent Challenge: Are Current Agents Capable of Autonomous Agent Development?",
-    "url": "https://arxiv.org/abs/2606.04455v1",
-    "published": "2026-06-03",
-    "summary": "Current AI benchmarks evaluate agents on task execution within human-designed workflows. These evaluations fundamentally fail to measure a critical next-level capability: whether models can autonomously develop agent systems. We introduce the Meta-Agent Challenge (MAC), an evaluation framework designed to test the capacity of frontier models for autonomous agent development. Specifically, a code agent (the meta-agent) is given a sandboxed environment, an evaluation API, and a time limitation to …",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.25,
-    "matched_topics": [
-      "self_evolving_agents"
     ]
   },
   {
@@ -345,93 +602,21 @@
     "summary": "2031 MCP servers: ~40% destructive/exec tools, 96% без предупреждений.",
     "source_type": "papers",
     "origin": "PolicyLayer",
-    "relevance_score": 1.25,
+    "relevance_score": 1.2,
     "matched_topics": [
       "agent_tools"
     ]
   },
   {
-    "title": "Zombie Agents: Persistent Control of Self-Evolving LLM Agents",
-    "url": "https://arxiv.org/pdf/2602.15654",
-    "published": "2026-02-15",
-    "summary": "Self-reinforcing memory injection, persistent cross-session control.",
+    "title": "Your Agent May Misevolve (ICLR 2026)",
+    "url": "https://openreview.net/forum?id=Fd1jgQQW28",
+    "published": "2026-04-01",
+    "summary": "Misevolution: деградация alignment, уязвимые tools, workflow drift.",
     "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.25,
-    "matched_topics": [
-      "self_evolving_agents"
-    ]
-  },
-  {
-    "title": "Reconstructing AI activity in investigations",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/09/reconstructing-ai-activity-investigations/",
-    "published": "2026-06-09",
-    "summary": "<p>Learn how to investigate AI activity in Microsoft 365 Copilot and Azure AI services using a structured, telemetry-driven approach. This playbook helps security teams reconstruct events, assess data exposure, and detect potential threats faster.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/06/09/reconstructing-ai-activity-investigations/\">Reconstructing AI activity in investigations </a> appeared first on <a href=\"https://www.microsoft.com/en-us/security/blog\">Mi…",
-    "source_type": "vendor",
-    "origin": "Microsoft Security Blog",
-    "relevance_score": 1.2,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "Access OpenAI models and Codex through your Oracle cloud commitment",
-    "url": "https://openai.com/index/openai-on-oracle-cloud",
-    "published": "2026-06-10",
-    "summary": "Access OpenAI models and Codex through Oracle Cloud, using existing commitments to build and deploy AI with enterprise security and governance.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 1.2,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "A blueprint for democratic governance of frontier AI",
-    "url": "https://openai.com/index/frontier-safety-blueprint",
-    "published": "2026-06-03",
-    "summary": "OpenAI outlines a blueprint for U.S. governance of frontier AI, proposing a federal framework for safety, resilience, and national security.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 1.2,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "OpenAI’s Frontier Governance Framework",
-    "url": "https://openai.com/index/openai-frontier-governance-framework",
-    "published": "2026-05-28",
-    "summary": "Explore OpenAI’s Frontier Governance Framework and how our AI safety, security, and risk practices align with emerging EU and California regulations.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 1.2,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "Building self-improving tax agents with Codex",
-    "url": "https://openai.com/index/building-self-improving-tax-agents-with-codex",
-    "published": "2026-05-27",
-    "summary": "See how OpenAI, Thrive, and Crete built a self-improving tax agent with Codex, automating filings, improving accuracy, and accelerating workflows.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
+    "origin": "ICLR 2026",
     "relevance_score": 1.2,
     "matched_topics": [
       "self_evolving_agents"
-    ]
-  },
-  {
-    "title": "How enterprises are scaling AI",
-    "url": "https://openai.com/business/guides-and-resources/how-enterprises-are-scaling-ai",
-    "published": "2026-05-11",
-    "summary": "How enterprises scale AI: from early experiments to compounding impact through trust, governance, workflow design, and quality at scale.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 1.2,
-    "matched_topics": [
-      "ai_regulation"
     ]
   },
   {
@@ -545,14 +730,232 @@
     "matched_topics": []
   },
   {
-    "title": "Supply Chain Compromises Impact Nx Console and GitHub Repositories",
-    "url": "https://www.cisa.gov/news-events/alerts/2026/05/28/supply-chain-compromises-impact-nx-console-and-github-repositories",
-    "published": "2026-05-28",
-    "summary": "<p>CISA is prioritizing the response to multiple emerging software supply chain intrusion campaigns targeting developer ecosystems Continuous Integration/Continuous Development (CI/CD) pipelines. These recent incidents, including the GitHub compromise via a malicious Nx Console Visual Studio Code (VS Code) extension and the “Megalodon” supply chain intrusion campaign, demonstrate how cyber threat actors are abusing tools and processes that support enterprise, cloud, and DevOps environments—speci…",
-    "source_type": "gov_cert",
-    "origin": "CISA Cybersecurity Advisories",
+    "title": "AI threats in the wild: The current state of prompt injections on the web",
+    "url": "http://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html",
+    "published": "2026-04-23",
+    "summary": "<span class=\"byline-author\">Posted by Thomas Brunner, Yu-Han Liu, Moni Pande</span><div><br /></div><div><span id=\"docs-internal-guid-49e83394-7fff-3df2-a974-c7291d12beb8\"><p dir=\"ltr\" style=\"line-height: 1.38; margin-bottom: 10pt; margin-top: 0pt;\"><span face=\"Roboto, sans-serif\" style=\"font-size: 12pt; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">At Google, our Threat Intelligence teams are dedicated to staying ahead of real-world adversarial activity, proactively mo…",
+    "source_type": "vendor",
+    "origin": "Google Security Blog",
     "relevance_score": 1.15,
-    "matched_topics": []
+    "matched_topics": [
+      "prompt_injection"
+    ]
+  },
+  {
+    "title": "Google Workspace’s continuous approach to mitigating indirect prompt injections",
+    "url": "http://security.googleblog.com/2026/04/google-workspaces-continuous-approach.html",
+    "published": "2026-04-02",
+    "summary": "<span class=\"byline-author\">Posted by Adam Gavish, Google GenAI Security Team</span><div><br /></div><div><span id=\"docs-internal-guid-963e2379-7fff-2c42-f377-675bf409d663\"><p dir=\"ltr\" style=\"line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;\"><span face=\"&quot;Google Sans Text&quot;, sans-serif\" style=\"font-size: 11pt; vertical-align: baseline;\">Indirect prompt injection (IPI) is an evolving threat vector targeting users of complex AI applications with multiple data sources, such as Works…",
+    "source_type": "vendor",
+    "origin": "Google Security Blog",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "prompt_injection"
+    ]
+  },
+  {
+    "title": "Reconstructing AI activity in investigations",
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/09/reconstructing-ai-activity-investigations/",
+    "published": "2026-06-09",
+    "summary": "<p>Learn how to investigate AI activity in Microsoft 365 Copilot and Azure AI services using a structured, telemetry-driven approach. This playbook helps security teams reconstruct events, assess data exposure, and detect potential threats faster.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/06/09/reconstructing-ai-activity-investigations/\">Reconstructing AI activity in investigations </a> appeared first on <a href=\"https://www.microsoft.com/en-us/security/blog\">Mi…",
+    "source_type": "vendor",
+    "origin": "Microsoft Security Blog",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "ai_regulation"
+    ]
+  },
+  {
+    "title": "AI brands as bait: How threat actors are using the AI hype in social engineering",
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/08/ai-brands-as-bait-how-threat-actors-are-using-the-ai-hype-in-social-engineering/",
+    "published": "2026-06-08",
+    "summary": "<p>As threat actors operationalize AI to accelerate attacks, they are also leveraging the wider global interest around AI itself as a social engineering lure.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/06/08/ai-brands-as-bait-how-threat-actors-are-using-the-ai-hype-in-social-engineering/\">AI brands as bait: How threat actors are using the AI hype in social engineering</a> appeared first on <a href=\"https://www.microsoft.com/en-us/security/blog\">Microsoft Security…",
+    "source_type": "vendor",
+    "origin": "Microsoft Security Blog",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "Securing CI/CD in an agentic world: Claude Code Github action case",
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/",
+    "published": "2026-06-05",
+    "summary": "<p>Microsoft Threat Intelligence identified a prompt injection pathway in Claude Code GitHub Action that allowed access to workflow secrets under specific conditions. This research examines the attack chain, responsible disclosure process, Anthropic's mitigation, and guidance for securing AI-powered CI/CD workflows.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/\">Securing CI/CD in an agentic world:…",
+    "source_type": "vendor",
+    "origin": "Microsoft Security Blog",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "prompt_injection"
+    ]
+  },
+  {
+    "title": "Updating the taxonomy of failure modes in agentic AI systems: What a year of red teaming taught us",
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/",
+    "published": "2026-06-04",
+    "summary": "<p>A surge in real-world attacks against agentic AI systems is reshaping how we think about risk. Based on 12 months of red teaming, this update introduces seven new failure modes, from supply chain compromise to goal hijacking, and the practical mitigations teams need now.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/\">Updating the taxonomy of failure modes in agentic AI systems: W…",
+    "source_type": "vendor",
+    "origin": "Microsoft Security Blog",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "Preinstall to persistence: Inside the Red Hat npm Miasma credential-stealing campaign",
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/02/preinstall-persistence-inside-red-hat-npm-miasma-credential-stealing-campaign/",
+    "published": "2026-06-03",
+    "summary": "<p>A large-scale npm supply chain attack compromised over 90 versions of @redhat-cloud-services packages, silently infecting CI/CD environments and developer systems. The malicious code steals credentials from GitHub, cloud platforms, and local machines, then spreads like a worm by republishing trusted packages. Discover how the attack works, what data is at risk, and the steps you can take to protect your organization.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/…",
+    "source_type": "vendor",
+    "origin": "Microsoft Security Blog",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "Typosquatted npm packages used to steal cloud and CI/CD secrets",
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/05/28/typosquatted-npm-packages-used-steal-cloud-ci-cd-secrets/",
+    "published": "2026-05-29",
+    "summary": "<p>The Mini Shai-Hulud campaign used malicious npm packages to target cloud and CI/CD credentials across developer environments. This report details the attack chain, detection opportunities, and mitigation guidance to help organizations identify and disrupt related activity.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/05/28/typosquatted-npm-packages-used-steal-cloud-ci-cd-secrets/\">Typosquatted npm packages used to steal cloud and CI/CD secrets</a> appeared first…",
+    "source_type": "vendor",
+    "origin": "Microsoft Security Blog",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "Access OpenAI models and Codex through your Oracle cloud commitment",
+    "url": "https://openai.com/index/openai-on-oracle-cloud",
+    "published": "2026-06-10",
+    "summary": "Access OpenAI models and Codex through Oracle Cloud, using existing commitments to build and deploy AI with enterprise security and governance.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "ai_regulation"
+    ]
+  },
+  {
+    "title": "A blueprint for democratic governance of frontier AI",
+    "url": "https://openai.com/index/frontier-safety-blueprint",
+    "published": "2026-06-03",
+    "summary": "OpenAI outlines a blueprint for U.S. governance of frontier AI, proposing a federal framework for safety, resilience, and national security.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "ai_regulation"
+    ]
+  },
+  {
+    "title": "OpenAI’s Frontier Governance Framework",
+    "url": "https://openai.com/index/openai-frontier-governance-framework",
+    "published": "2026-05-28",
+    "summary": "Explore OpenAI’s Frontier Governance Framework and how our AI safety, security, and risk practices align with emerging EU and California regulations.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "ai_regulation"
+    ]
+  },
+  {
+    "title": "Building self-improving tax agents with Codex",
+    "url": "https://openai.com/index/building-self-improving-tax-agents-with-codex",
+    "published": "2026-05-27",
+    "summary": "See how OpenAI, Thrive, and Crete built a self-improving tax agent with Codex, automating filings, improving accuracy, and accelerating workflows.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "Building a safe, effective sandbox to enable Codex on Windows",
+    "url": "https://openai.com/index/building-codex-windows-sandbox",
+    "published": "2026-05-13",
+    "summary": "Learn how OpenAI built a safe, effective sandbox to enable Codex on Windows with controlled file access and network limits.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "agent_runtime_governance"
+    ]
+  },
+  {
+    "title": "Our response to the TanStack npm supply chain attack",
+    "url": "https://openai.com/index/our-response-to-the-tanstack-npm-supply-chain-attack",
+    "published": "2026-05-13",
+    "summary": "OpenAI details its response to the TanStack “Mini Shai-Hulud” supply chain attack, outlines protections taken to secure systems and signing certificates, and explains why macOS users must update OpenAI apps by June 12, 2026. Learn what happened, what was affected, and how OpenAI is strengthening defenses against evolving software supply chain threats.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "How enterprises are scaling AI",
+    "url": "https://openai.com/business/guides-and-resources/how-enterprises-are-scaling-ai",
+    "published": "2026-05-11",
+    "summary": "How enterprises scale AI: from early experiments to compounding impact through trust, governance, workflow design, and quality at scale.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "ai_regulation"
+    ]
+  },
+  {
+    "title": "Running Codex safely at OpenAI",
+    "url": "https://openai.com/index/running-codex-safely",
+    "published": "2026-05-08",
+    "summary": "How OpenAI runs Codex securely with sandboxing, approvals, network policies, and agent-native telemetry to support safe and compliant coding agent adoption.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "agent_runtime_governance"
+    ]
+  },
+  {
+    "title": "The next evolution of the Agents SDK",
+    "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk",
+    "published": "2026-04-15",
+    "summary": "OpenAI updates the Agents SDK with native sandbox execution and a model-native harness, helping developers build secure, long-running agents across files and tools.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "agent_runtime_governance"
+    ]
+  },
+  {
+    "title": "Our response to the Axios developer tool compromise",
+    "url": "https://openai.com/index/axios-developer-tool-compromise",
+    "published": "2026-04-10",
+    "summary": "OpenAI responds to the Axios supply chain attack by rotating macOS code signing certificates, updating apps, and confirming no user data was compromised.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.15,
+    "matched_topics": [
+      "model_supply_chain"
+    ]
+  },
+  {
+    "title": "FreoStream:Enhancing Stream Guardrails via Future-Aware Reasoning and Safety-Aligned Optimization",
+    "url": "https://arxiv.org/abs/2606.13737",
+    "published": "2026-06-15",
+    "summary": "arXiv:2606.13737v1 Announce Type: new \nAbstract: Stream guardrails enable token-level safety detection before full responses are generated. However, they often make overly conservative judgements and block those sensitive but safe tokens, which is known as over-refusal. Due to lack of full context, they also fail to detect implicitly harmful content from jailbreaking. To address these challenges, we propose FreoStream, a novel streaming guardrail framework. Specifically, FreoStream fine-tunes a …",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.05,
+    "matched_topics": [
+      "prompt_injection"
+    ]
   },
   {
     "title": "When Good Verifiers Go Bad: Self-Improving VLMs Can Regress on New Tasks",
@@ -561,9 +964,33 @@
     "summary": "arXiv:2606.14629v1 Announce Type: new \nAbstract: Verifier-driven self-DPO is a common recipe for self-improving production visual-language models. In this setup, a frozen verifier scores candidate generations, the top- and bottom-scoring candidates form a preference example, and DPO updates the learner. The deployment-time assumption is monotone: a stronger verifier should yield a stronger student. We show that this assumption can fail because verifier quality is highly task-specific. On a four-…",
     "source_type": "papers",
     "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.1,
+    "relevance_score": 1.05,
     "matched_topics": [
       "self_evolving_agents"
+    ]
+  },
+  {
+    "title": "How Quickly Do Development Teams Update Their Vulnerable Dependencies?",
+    "url": "https://arxiv.org/abs/2403.17382",
+    "published": "2026-06-15",
+    "summary": "arXiv:2403.17382v4 Announce Type: replace-cross \nAbstract: Industry practitioners are increasingly concerned with software that contains vulnerable versions of third-party dependencies that are included both directly and transitively. To address this problem, projects are encouraged to both (a)~quickly update to non-vulnerable versions of dependencies and (b)~be mindful of the update practices of the dependencies they choose to use. To this end, researchers have proposed metrics to measure the r…",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.05,
+    "matched_topics": [
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "Rotation-Invariant Spherical Watermarking via Third-Order SO(3) Representation Coupling",
+    "url": "https://arxiv.org/abs/2605.26702",
+    "published": "2026-06-15",
+    "summary": "arXiv:2605.26702v3 Announce Type: replace-cross \nAbstract: Reliable watermarking of panoramic imagery is fundamentally challenged by arbitrary 3D rotations. As panoramas are defined on the sphere, they naturally transform under the action of $SO(3)$, rendering conventional planar representations and augmentation-based robustness strategies inadequate and devoid of theoretical guarantees. To address this, we formulate panoramas as spherical signals and leverage $SO(3)$ representation theory to de…",
+    "source_type": "papers",
+    "origin": "arXiv cs.CR (snapshot)",
+    "relevance_score": 1.05,
+    "matched_topics": [
+      "rag_data_layer"
     ]
   },
   {
@@ -573,33 +1000,22 @@
     "summary": "Verifier-driven self-DPO is a common recipe for self-improving production visual-language models. In this setup, a frozen verifier scores candidate generations, the top- and bottom-scoring candidates form a preference example, and DPO updates the learner. The deployment-time assumption is monotone: a stronger verifier should yield a stronger student. We show that this assumption can fail because verifier quality is highly task-specific. On a four-rung open-source verifier ladder across MathVista…",
     "source_type": "papers",
     "origin": "arXiv",
-    "relevance_score": 1.1,
+    "relevance_score": 1.05,
     "matched_topics": [
       "self_evolving_agents"
     ]
   },
   {
-    "title": "Our views on AI policy and political advocacy",
-    "url": "https://openai.com/index/our-views-on-ai-policy-and-political-advocacy",
-    "published": "2026-06-01",
-    "summary": "Our approach to AI policy and political advocacy, transparency, support for thoughtful regulation and AI safety, and that no outside political group speaks on the company’s behalf.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
+    "title": "MCP Is the New Supply Chain (Lorikeet Security)",
+    "url": "https://lorikeetsecurity.com/blog/mcp-supply-chain-attacks-ai-agent-security",
+    "published": "2026-04-01",
+    "summary": "30+ CVE, npm hijack WAVESHAPER, 7000+ exposed MCP servers.",
+    "source_type": "news",
+    "origin": "Lorikeet Security",
     "relevance_score": 1.05,
     "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "AdventHealth advances whole-person care with OpenAI",
-    "url": "https://openai.com/index/adventhealth",
-    "published": "2026-05-21",
-    "summary": "AdventHealth is using ChatGPT for Healthcare to streamline workflows, reduce administrative burden, and return more time to patient care.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 1.05,
-    "matched_topics": [
-      "ai_regulation"
+      "agent_tools",
+      "model_supply_chain"
     ]
   },
   {
@@ -733,6 +1149,78 @@
     "matched_topics": []
   },
   {
+    "title": "Our views on AI policy and political advocacy",
+    "url": "https://openai.com/index/our-views-on-ai-policy-and-political-advocacy",
+    "published": "2026-06-01",
+    "summary": "Our approach to AI policy and political advocacy, transparency, support for thoughtful regulation and AI safety, and that no outside political group speaks on the company’s behalf.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.0,
+    "matched_topics": [
+      "ai_regulation"
+    ]
+  },
+  {
+    "title": "How Virgin Atlantic ships faster with Codex",
+    "url": "https://openai.com/index/virgin-atlantic",
+    "published": "2026-05-22",
+    "summary": "How Virgin Atlantic used Codex to ship its revamped mobile app on a fixed holiday travel deadline, reaching near-total unit test coverage and zero P1 defects.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.0,
+    "matched_topics": [
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "AdventHealth advances whole-person care with OpenAI",
+    "url": "https://openai.com/index/adventhealth",
+    "published": "2026-05-21",
+    "summary": "AdventHealth is using ChatGPT for Healthcare to streamline workflows, reduce administrative burden, and return more time to patient care.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.0,
+    "matched_topics": [
+      "ai_regulation"
+    ]
+  },
+  {
+    "title": "Parloa builds service agents customers want to talk to",
+    "url": "https://openai.com/index/parloa",
+    "published": "2026-05-07",
+    "summary": "Parloa leverages OpenAI models to power scalable, voice-driven AI customer service agents, enabling enterprises to design, simulate, and deploy reliable, real-time interactions.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.0,
+    "matched_topics": [
+      "rag_data_layer"
+    ]
+  },
+  {
+    "title": "GPT-5.5 Bio Bug Bounty",
+    "url": "https://openai.com/index/gpt-5-5-bio-bug-bounty",
+    "published": "2026-04-23",
+    "summary": "Explore the GPT-5.5 Bio Bug Bounty: a red-teaming challenge to find universal jailbreaks for bio safety risks, with rewards up to $25,000.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.0,
+    "matched_topics": [
+      "prompt_injection"
+    ]
+  },
+  {
+    "title": "CyberAgent moves faster with ChatGPT Enterprise and Codex",
+    "url": "https://openai.com/index/cyberagent",
+    "published": "2026-04-09",
+    "summary": "CyberAgent uses ChatGPT Enterprise and Codex to securely scale AI adoption, improve quality, and accelerate decisions across advertising, media, and gaming.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 1.0,
+    "matched_topics": [
+      "rag_data_layer"
+    ]
+  },
+  {
     "title": "SEVRA-BENCH: Social Engineering of Vulnerabilities in Review Agents",
     "url": "https://arxiv.org/abs/2606.13757",
     "published": "2026-06-15",
@@ -773,16 +1261,6 @@
     "matched_topics": []
   },
   {
-    "title": "Software Dark Matter: Gazing at Uncharted Files to Navigate SBOM Integrations",
-    "url": "https://arxiv.org/abs/2606.13966",
-    "published": "2026-06-15",
-    "summary": "arXiv:2606.13966v1 Announce Type: new \nAbstract: Modern software supply chains have evolved into vast, heterogeneous networks where transparency - the granular understanding of all software components - is now a critical security requirement. While Software Bills of Materials (SBOMs) have emerged as the primary mechanism for this transparency, current industry practices rely on a metadata-centric paradigm that assumes an artifact is defined solely by its package manager declarations. We posit th…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
     "title": "Choric Masking in Ambient Release Systems: A Finite Certificate Calculus for Trace Indistinguishability under Bounded Audiences",
     "url": "https://arxiv.org/abs/2606.13967",
     "published": "2026-06-15",
@@ -817,16 +1295,6 @@
     "url": "https://arxiv.org/abs/2606.14027",
     "published": "2026-06-15",
     "summary": "arXiv:2606.14027v1 Announce Type: new \nAbstract: Agentic browsers integrate autonomous AI agents into web browsers, enabling users to accomplish web tasks through natural-language instructions. The same-origin policy (SOP) is a fundamental browser security mechanism that prevents unauthorized automated cross-origin data flows induced by scripts. However, whether SOP remains effective in agentic browsers is an open question that has not been systematically studied. In this work, we bridge this ga…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "Defending the Core: A Centrality-Based Protection Strategy for Supply Chain Security in npm Dependency Network",
-    "url": "https://arxiv.org/abs/2606.14036",
-    "published": "2026-06-15",
-    "summary": "arXiv:2606.14036v1 Announce Type: new \nAbstract: The modern software supply chain, taking Node Package Manager (npm) dependency network for example, relies heavily on shared open-source dependencies. While this promotes rapid development, it introduces systemic vulnerabilities as well. Concerning this potential risk, we analyze the npm dependency network by modeling 53,481 packages and 78,520 dependency edges, and classify the network as a scale-free topology. Thus, we demonstrate its inherent v…",
     "source_type": "papers",
     "origin": "arXiv cs.CR (snapshot)",
     "relevance_score": 1.0,
@@ -973,46 +1441,6 @@
     "matched_topics": []
   },
   {
-    "title": "NeST: Neuron Selective Tuning for LLM Safety",
-    "url": "https://arxiv.org/abs/2602.16835",
-    "published": "2026-06-15",
-    "summary": "arXiv:2602.16835v2 Announce Type: replace \nAbstract: Safety alignment is essential for the responsible deployment of Large Language Models (LLMs). Yet, existing approaches often rely on heavyweight fine-tuning that is costly to update, audit, and maintain across model families. Full fine-tuning incurs substantial computational and storage overhead, while parameter-efficient methods, e.g., Low-Rank Adaptation (LoRA), trade efficiency for inconsistent safety gains and sensitivity to design choices…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "Patcher: Post-Hoc Patching of Backdoored Large Language Models",
-    "url": "https://arxiv.org/abs/2606.02995",
-    "published": "2026-06-15",
-    "summary": "arXiv:2606.02995v2 Announce Type: replace \nAbstract: Large language models remain vulnerable to jailbreak backdoor attacks, where adversaries poison safety alignment data to embed hidden triggers that bypass safety mechanisms. Existing defenses often require comprehensive attack information or multiple triggered examples, making them impractical when defenders only observe a single reported failure case without knowing whether it stems from a backdoor attack or a natural alignment bug. This pape…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "Game-Theoretic Multi-Agent Control for Robust Contextual Reasoning in LLMs",
-    "url": "https://arxiv.org/abs/2606.10322",
-    "published": "2026-06-15",
-    "summary": "arXiv:2606.10322v2 Announce Type: replace \nAbstract: Large Language Models (LLMs) in multi-turn interactions maintain evolving context rather than generating isolated responses, making them vulnerable to prompt-injection and context-poisoning attacks in which locally plausible adversarial fragments gradually distort reasoning trajectories. Existing defenses mainly filter individual outputs and often ignore context evolution across turns, leaving long-horizon reasoning exposed. Although the Model…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "RedAct: Redacting Agent Capability Traces for Procedural Skill Protection",
-    "url": "https://arxiv.org/abs/2606.10813",
-    "published": "2026-06-15",
-    "summary": "arXiv:2606.10813v3 Announce Type: replace \nAbstract: Users rely on execution traces to observe agent behavior, diagnose failures, and ensure accountability. These traces contain rich procedural detail, including tool invocations, intermediate decisions, and error-recovery logic. Yet this detail can expose private procedural skills, allowing downstream methods to recover key formulas, thresholds, and strategies without access to model weights or skill files. To quantify this risk and evaluate pro…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
     "title": "MAStrike: Shapley-Guided Collusive Red-Teaming on Multi-Agent Systems",
     "url": "https://arxiv.org/abs/2606.12918",
     "published": "2026-06-15",
@@ -1037,16 +1465,6 @@
     "url": "https://arxiv.org/abs/2604.04611",
     "published": "2026-06-15",
     "summary": "arXiv:2604.04611v2 Announce Type: replace-cross \nAbstract: Federated learning (FL) enables multiple clients to collaboratively train a global model by aggregating local updates without sharing private data. However, FL often faces the challenge of free-riders, clients who submit fake model parameters without performing actual training to obtain the global model without contributing. Chen et al. proposed a free-rider detection method based on the weight evolving frequency (WEF) of model parameter…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "The Insurability Frontier of AI Risk: Mapping Threats to Affirmative Coverage, Silent Exposures, and Exclusions",
-    "url": "https://arxiv.org/abs/2605.18784",
-    "published": "2026-06-15",
-    "summary": "arXiv:2605.18784v2 Announce Type: replace-cross \nAbstract: The rapid diffusion of agentic AI has created a new coverage problem for commercial insurance: some AI-mediated losses are now affirmatively insured, some create silent-AI exposure under legacy cyber, technology errors-and-omissions (E&amp;O), directors-and-officers (D&amp;O), employment practices liability (EPLI), crime, and media policies, and others are being actively excluded.\n  This paper maps that emerging boundary by coding 55 AI …",
     "source_type": "papers",
     "origin": "arXiv cs.CR (snapshot)",
     "relevance_score": 1.0,
@@ -1133,30 +1551,10 @@
     "matched_topics": []
   },
   {
-    "title": "Beyond Runtime Enforcement: Shield Synthesis as Defensibility Analysis for Adversarial Networks",
-    "url": "https://arxiv.org/abs/2606.13621v1",
-    "published": "2026-06-11",
-    "summary": "Shielded reinforcement learning is typically presented as a runtime safety mechanism that compiles temporal-logic specifications into automata restricting an agent's actions. We argue this is the wrong product. The same automata-theoretic machinery -- specification compilation, product game construction, attractor computation, and winning-region extraction -- is better read as a design-time analytical instrument whose outputs are structural insights about a system rather than runtime constraints…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
     "title": "SEVRA-BENCH: Social Engineering of Vulnerabilities in Review Agents",
     "url": "https://arxiv.org/abs/2606.13757v1",
     "published": "2026-06-11",
     "summary": "Large language model (LLM) reviewers are increasingly used in pull-request (PR) workflows, where their approvals help decide which code is merged into a repository. This raises a question that benchmarks for static vulnerability detection or code generation do not address: can an automated reviewer reject a malicious contribution when the attacker controls both the code change and the accompanying PR text? We introduce SEVRA-BENCH (Social Engineering of Vulnerabilities in Review Agents), a bench…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "Who Pays the Price? Stakeholder-Centric Prompt Injection Benchmarking for Real-world Web Agents",
-    "url": "https://arxiv.org/abs/2606.13385v1",
-    "published": "2026-06-11",
-    "summary": "Web agents driven by large language models (LLMs) are increasingly deployed in real-world environments, where they operate over untrusted web content and execute actions with direct consequences. This makes them vulnerable to prompt-injection attacks, in which seemingly benign content embeds adversarial instructions that manipulate agent behaviour. Existing security benchmarks adopt an \\textit{attack-centric} perspective, focusing on the technical feasibility of injections while overlooking the …",
     "source_type": "papers",
     "origin": "arXiv",
     "relevance_score": 1.0,
@@ -1183,46 +1581,6 @@
     "matched_topics": []
   },
   {
-    "title": "PolicyGuard: Towards Test-time and Step-level Adversary Defense for Reinforcement Learning Agent",
-    "url": "https://arxiv.org/abs/2606.12896v1",
-    "published": "2026-06-11",
-    "summary": "While real-world applications of reinforcement learning (RL) are becoming increasingly popular, the security of RL systems deserve more attention and exploration. In particular, recent work has revealed that RL agents are vulnerable to backdoor attacks, where a victim agent behaves normally under standard conditions but executes malicious actions when a specific trigger is activated. Existing backdoor defenses for RL either require access to the agent's internal parameters, operate only at the m…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "PI-Hunter: Automated Red-Teaming for Exposing and Localizing Prompt Injections",
-    "url": "https://arxiv.org/abs/2606.12737v1",
-    "published": "2026-06-10",
-    "summary": "Large Language Models (LLMs) are rapidly evolving into agentic systems that interact with external tools and environments, introducing new security risks such as indirect prompt injection attacks through untrusted external sources. Existing defenses mainly focus on blocking malicious content at inference time, and current red-teaming methods primarily optimize attack success. As a result, developers have limited visibility into how latent prompt injections emerge and propagate through agents. We…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "Smarter Saboteurs, Better Fixers: Scaling & Security in Linear Multi-Agent Workflows",
-    "url": "https://arxiv.org/abs/2606.12709v1",
-    "published": "2026-06-10",
-    "summary": "As LLM-based multi-agent systems (MAS) are deployed in the wild, the resilience of their collaboration structures against adversarial compromise becomes a critical safety concern. Attackers may leverage prompt-injection or jailbreaking to sabotage individual agents within MAS workflows, but the interaction between model scaling and system-level resilience remains poorly understood. This paper investigates how model scale affects the security of linear multi-agent workflows. Our experiments acros…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "SMSR: Certified Defence Against Runtime Memory Poisoning in Persistent LLM Agent Systems",
-    "url": "https://arxiv.org/abs/2606.12703v1",
-    "published": "2026-06-10",
-    "summary": "Retrieval-augmented generation (RAG) agents increasingly run with persistent memory that accumulates across user sessions. This creates a new attack surface: an adversary interacting only through normal channels can inject crafted memories that, once retrieved, steer the agent's responses for future users, without touching model weights or code. We call this Multi-Session Memory Poisoning (MSMP) and show that no existing defence certifies against it; static-corpus defences (RobustRAG, Reliabilit…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
     "title": "OCELOT: Inference-Leakage Budgets for Privacy-Preserving LLM Agents",
     "url": "https://arxiv.org/abs/2606.12341v1",
     "published": "2026-06-10",
@@ -1233,30 +1591,10 @@
     "matched_topics": []
   },
   {
-    "title": "Selection Integrity for LLM Graph Memory: An Accumulability Criterion for Information-Flow-Blind Retrieval",
-    "url": "https://arxiv.org/abs/2606.12290v1",
-    "published": "2026-06-10",
-    "summary": "Agent memory is moving to graphs, and the provenance defenses now being built for it all check one thing: the provenance of the records an agent retrieves. We show that this entire class of defense is blind by construction. A long-term graph memory runs a global selection step over writable graph structure, so structure that an untrusted principal writes changes \\emph{which} authenticated facts are selected while the cited evidence stays fully authenticated; faithful information-flow control (IF…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
     "title": "Mind your key: An Empirical Study of LLM API Credential Leakage in iOS Apps",
     "url": "https://arxiv.org/abs/2606.12212v1",
     "published": "2026-06-10",
     "summary": "The rapid integration of large language models (LLMs) into mobile applications has introduced a new class of credential security risk: leaked credentials that grant unauthorized access to LLM inference services, causing financial damage to developers. Prior work on credential leakage has focused primarily on Android apps; to date, no empirical study has systematically investigated LLM API key leakage in iOS applications.\n  We present the first in-depth empirical study of API key leakage in LLM-i…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "Grammar-Constrained Decoding Can Jailbreak LLMs into Generating Malicious Code",
-    "url": "https://arxiv.org/abs/2606.11817v1",
-    "published": "2026-06-10",
-    "summary": "Large Language Models (LLMs) are increasingly used for code generation, raising concerns that they may be misused to produce malicious code. Meanwhile, Grammar-Constrained Decoding (GCD) has been widely adopted to improve the reliability of LLM-generated code by enforcing syntactic validity. In this paper, we reveal a counterintuitive risk: this reliability-oriented technique can itself become an attack surface. We uncover a new jailbreak attack, termed CodeSpear, that exploits GCD to induce LLM…",
     "source_type": "papers",
     "origin": "arXiv",
     "relevance_score": 1.0,
@@ -1323,16 +1661,6 @@
     "matched_topics": []
   },
   {
-    "title": "GitInject: Real-World Prompt Injection Attacks in AI-Powered CI/CD Pipelines",
-    "url": "https://arxiv.org/abs/2606.09935v1",
-    "published": "2026-06-07",
-    "summary": "AI-powered agents are increasingly embedded in continuous integration and continuous delivery/deployment (CI/CD) pipelines to autonomously review pull requests (PRs), triage issues, and maintain codebases. These agents ingest untrusted content while operating with elevated repository permissions, making them a natural target for prompt injection attacks with supply chain consequences. We present GitInject, an open-source framework for evaluating prompt injection vulnerabilities in real, live Git…",
-    "source_type": "papers",
-    "origin": "arXiv",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
     "title": "Closing the Sim-to-Real Gap: An Evaluation Framework for Autonomous Cyber Defense Configuration of Commercial EDR",
     "url": "https://arxiv.org/abs/2606.08168v1",
     "published": "2026-06-06",
@@ -1373,26 +1701,6 @@
     "matched_topics": []
   },
   {
-    "title": "Your Agent May Misevolve (ICLR 2026)",
-    "url": "https://openreview.net/forum?id=Fd1jgQQW28",
-    "published": "2026-04-01",
-    "summary": "Misevolution: деградация alignment, уязвимые tools, workflow drift.",
-    "source_type": "papers",
-    "origin": "ICLR 2026",
-    "relevance_score": 1.0,
-    "matched_topics": []
-  },
-  {
-    "title": "AI threats in the wild: The current state of prompt injections on the web",
-    "url": "http://security.googleblog.com/2026/04/ai-threats-in-wild-current-state-of.html",
-    "published": "2026-04-23",
-    "summary": "<span class=\"byline-author\">Posted by Thomas Brunner, Yu-Han Liu, Moni Pande</span><div><br /></div><div><span id=\"docs-internal-guid-49e83394-7fff-3df2-a974-c7291d12beb8\"><p dir=\"ltr\" style=\"line-height: 1.38; margin-bottom: 10pt; margin-top: 0pt;\"><span face=\"Roboto, sans-serif\" style=\"font-size: 12pt; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">At Google, our Threat Intelligence teams are dedicated to staying ahead of real-world adversarial activity, proactively mo…",
-    "source_type": "vendor",
-    "origin": "Google Security Blog",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
     "title": "Bringing Rust to the Pixel Baseband",
     "url": "http://security.googleblog.com/2026/04/bringing-rust-to-pixel-baseband.html",
     "published": "2026-04-10",
@@ -1413,60 +1721,10 @@
     "matched_topics": []
   },
   {
-    "title": "Google Workspace’s continuous approach to mitigating indirect prompt injections",
-    "url": "http://security.googleblog.com/2026/04/google-workspaces-continuous-approach.html",
-    "published": "2026-04-02",
-    "summary": "<span class=\"byline-author\">Posted by Adam Gavish, Google GenAI Security Team</span><div><br /></div><div><span id=\"docs-internal-guid-963e2379-7fff-2c42-f377-675bf409d663\"><p dir=\"ltr\" style=\"line-height: 1.38; margin-bottom: 0pt; margin-top: 0pt;\"><span face=\"&quot;Google Sans Text&quot;, sans-serif\" style=\"font-size: 11pt; vertical-align: baseline;\">Indirect prompt injection (IPI) is an evolving threat vector targeting users of complex AI applications with multiple data sources, such as Works…",
-    "source_type": "vendor",
-    "origin": "Google Security Blog",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
     "title": "Turn specs into evals for any agent with ASSERT",
     "url": "https://commandline.microsoft.com/assert-written-intent-executable-evals/",
     "published": "2026-06-10",
     "summary": "<p>Adaptive Spec-driven Scoring for Evaluation and Regression Testing (ASSERT) is an open-source framework for converting natural language behavior requirements into executable evaluations of AI models and agents.</p>\n<p>The post <a href=\"https://commandline.microsoft.com/assert-written-intent-executable-evals/\">Turn specs into evals for any agent with ASSERT</a> appeared first on <a href=\"https://www.microsoft.com/en-us/security/blog\">Microsoft Security Blog</a>.</p>",
-    "source_type": "vendor",
-    "origin": "Microsoft Security Blog",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "AI brands as bait: How threat actors are using the AI hype in social engineering",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/08/ai-brands-as-bait-how-threat-actors-are-using-the-ai-hype-in-social-engineering/",
-    "published": "2026-06-08",
-    "summary": "<p>As threat actors operationalize AI to accelerate attacks, they are also leveraging the wider global interest around AI itself as a social engineering lure.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/06/08/ai-brands-as-bait-how-threat-actors-are-using-the-ai-hype-in-social-engineering/\">AI brands as bait: How threat actors are using the AI hype in social engineering</a> appeared first on <a href=\"https://www.microsoft.com/en-us/security/blog\">Microsoft Security…",
-    "source_type": "vendor",
-    "origin": "Microsoft Security Blog",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "Securing CI/CD in an agentic world: Claude Code Github action case",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/",
-    "published": "2026-06-05",
-    "summary": "<p>Microsoft Threat Intelligence identified a prompt injection pathway in Claude Code GitHub Action that allowed access to workflow secrets under specific conditions. This research examines the attack chain, responsible disclosure process, Anthropic's mitigation, and guidance for securing AI-powered CI/CD workflows.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/\">Securing CI/CD in an agentic world:…",
-    "source_type": "vendor",
-    "origin": "Microsoft Security Blog",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "Updating the taxonomy of failure modes in agentic AI systems: What a year of red teaming taught us",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/",
-    "published": "2026-06-04",
-    "summary": "<p>A surge in real-world attacks against agentic AI systems is reshaping how we think about risk. Based on 12 months of red teaming, this update introduces seven new failure modes, from supply chain compromise to goal hijacking, and the practical mitigations teams need now.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/\">Updating the taxonomy of failure modes in agentic AI systems: W…",
-    "source_type": "vendor",
-    "origin": "Microsoft Security Blog",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "Preinstall to persistence: Inside the Red Hat npm Miasma credential-stealing campaign",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/02/preinstall-persistence-inside-red-hat-npm-miasma-credential-stealing-campaign/",
-    "published": "2026-06-03",
-    "summary": "<p>A large-scale npm supply chain attack compromised over 90 versions of @redhat-cloud-services packages, silently infecting CI/CD environments and developer systems. The malicious code steals credentials from GitHub, cloud platforms, and local machines, then spreads like a worm by republishing trusted packages. Discover how the attack works, what data is at risk, and the steps you can take to protect your organization.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/…",
     "source_type": "vendor",
     "origin": "Microsoft Security Blog",
     "relevance_score": 0.95,
@@ -1483,30 +1741,10 @@
     "matched_topics": []
   },
   {
-    "title": "Malicious npm packages abuse dependency confusion to profile developer environments",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/",
-    "published": "2026-05-30",
-    "summary": "<p>A dependency confusion campaign leveraged 33 malicious npm packages to collect reconnaissance data from developer and build environments. This report details the attack chain, observed tradecraft, and detection opportunities to help organizations identify and disrupt related activity.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/\">Malicious npm packages abuse dependency con…",
-    "source_type": "vendor",
-    "origin": "Microsoft Security Blog",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
     "title": "Microsoft is named a Leader in the 2026 Gartner® Magic Quadrant™ for Endpoint Protection",
     "url": "https://www.microsoft.com/en-us/security/blog/2026/05/29/microsoft-is-named-a-leader-in-the-2026-gartner-magic-quadrant-for-endpoint-protection/",
     "published": "2026-05-29",
     "summary": "<p>Microsoft is named a Leader in the 2026 Gartner® Magic Quadrant™ for Endpoint Protection.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/05/29/microsoft-is-named-a-leader-in-the-2026-gartner-magic-quadrant-for-endpoint-protection/\">Microsoft is named a Leader in the 2026 Gartner® Magic Quadrant™ for Endpoint Protection</a> appeared first on <a href=\"https://www.microsoft.com/en-us/security/blog\">Microsoft Security Blog</a>.</p>",
-    "source_type": "vendor",
-    "origin": "Microsoft Security Blog",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "Typosquatted npm packages used to steal cloud and CI/CD secrets",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/05/28/typosquatted-npm-packages-used-steal-cloud-ci-cd-secrets/",
-    "published": "2026-05-29",
-    "summary": "<p>The Mini Shai-Hulud campaign used malicious npm packages to target cloud and CI/CD credentials across developer environments. This report details the attack chain, detection opportunities, and mitigation guidance to help organizations identify and disrupt related activity.</p>\n<p>The post <a href=\"https://www.microsoft.com/en-us/security/blog/2026/05/28/typosquatted-npm-packages-used-steal-cloud-ci-cd-secrets/\">Typosquatted npm packages used to steal cloud and CI/CD secrets</a> appeared first…",
     "source_type": "vendor",
     "origin": "Microsoft Security Blog",
     "relevance_score": 0.95,
@@ -1527,36 +1765,6 @@
     "url": "https://openai.com/index/databricks",
     "published": "2026-05-15",
     "summary": "Databricks uses GPT-5.5 for enterprise agent workflows after the model set a new state of the art on the OfficeQA Pro benchmark.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "Building a safe, effective sandbox to enable Codex on Windows",
-    "url": "https://openai.com/index/building-codex-windows-sandbox",
-    "published": "2026-05-13",
-    "summary": "Learn how OpenAI built a safe, effective sandbox to enable Codex on Windows with controlled file access and network limits.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "Our response to the TanStack npm supply chain attack",
-    "url": "https://openai.com/index/our-response-to-the-tanstack-npm-supply-chain-attack",
-    "published": "2026-05-13",
-    "summary": "OpenAI details its response to the TanStack “Mini Shai-Hulud” supply chain attack, outlines protections taken to secure systems and signing certificates, and explains why macOS users must update OpenAI apps by June 12, 2026. Learn what happened, what was affected, and how OpenAI is strengthening defenses against evolving software supply chain threats.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "Running Codex safely at OpenAI",
-    "url": "https://openai.com/index/running-codex-safely",
-    "published": "2026-05-08",
-    "summary": "How OpenAI runs Codex securely with sandboxing, approvals, network policies, and agent-native telemetry to support safe and compliant coding agent adoption.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.95,
@@ -1623,16 +1831,6 @@
     "matched_topics": []
   },
   {
-    "title": "The next evolution of the Agents SDK",
-    "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk",
-    "published": "2026-04-15",
-    "summary": "OpenAI updates the Agents SDK with native sandbox execution and a model-native harness, helping developers build secure, long-running agents across files and tools.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
     "title": "Trusted access for the next era of cyber defense",
     "url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense",
     "published": "2026-04-14",
@@ -1650,108 +1848,6 @@
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "Our response to the Axios developer tool compromise",
-    "url": "https://openai.com/index/axios-developer-tool-compromise",
-    "published": "2026-04-10",
-    "summary": "OpenAI responds to the Axios supply chain attack by rotating macOS code signing certificates, updating apps, and confirming no user data was compromised.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "When AI Remembers Too Much (Unit 42)",
-    "url": "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/",
-    "published": "2026-05-01",
-    "summary": "Poisoning long-term memory агентов, persistent malicious instructions.",
-    "source_type": "vendor",
-    "origin": "Palo Alto Unit 42",
-    "relevance_score": 0.95,
-    "matched_topics": []
-  },
-  {
-    "title": "What is the Model Context Protocol (MCP)?",
-    "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
-    "published": null,
-    "summary": "MCP (Model Context Protocol) is an open-source standard for connecting AI applications to external systems.",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.9,
-    "matched_topics": [
-      "agent_tools"
-    ]
-  },
-  {
-    "title": "Model Context Protocol - Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Model_Context_Protocol",
-    "published": null,
-    "summary": "The Model Context Protocol (MCP) is an open standard and open-source framework introduced by Anthropic in November …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.9,
-    "matched_topics": [
-      "agent_tools"
-    ]
-  },
-  {
-    "title": "Model Context Protocol (MCP) - GeeksforGeeks",
-    "url": "https://www.geeksforgeeks.org/artificial-intelligence/model-context-protocol-mcp/",
-    "published": null,
-    "summary": "May 1, 2025 · Model Context Protocol (MCP) is a standardized framework by Anthropic that enables AI models to …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.9,
-    "matched_topics": [
-      "agent_tools"
-    ]
-  },
-  {
-    "title": "GitHub - microsoft/mcp: Catalog of official Microsoft MCP (Model ...",
-    "url": "https://github.com/microsoft/mcp",
-    "published": null,
-    "summary": "DESCRIPTION: An MCP server that enables AI assistants to interact with Azure Kubernetes Service (AKS) clusters. It …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.9,
-    "matched_topics": [
-      "agent_tools"
-    ]
-  },
-  {
-    "title": "Małopolskie Centrum Przedsiębiorczości – Strona MCP",
-    "url": "https://www.mcp.malopolska.pl/",
-    "published": null,
-    "summary": "Z inicjatywy Małopolskiego Centrum Przedsiębiorczości, przy współpracy z Małopolską Agencją Rozwoju …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.9,
-    "matched_topics": [
-      "agent_tools"
-    ]
-  },
-  {
-    "title": "MCP Is the New Supply Chain (Lorikeet Security)",
-    "url": "https://lorikeetsecurity.com/blog/mcp-supply-chain-attacks-ai-agent-security",
-    "published": "2026-04-01",
-    "summary": "30+ CVE, npm hijack WAVESHAPER, 7000+ exposed MCP servers.",
-    "source_type": "news",
-    "origin": "Lorikeet Security",
-    "relevance_score": 0.9,
-    "matched_topics": [
-      "agent_tools"
-    ]
-  },
-  {
-    "title": "FreoStream:Enhancing Stream Guardrails via Future-Aware Reasoning and Safety-Aligned Optimization",
-    "url": "https://arxiv.org/abs/2606.13737",
-    "published": "2026-06-15",
-    "summary": "arXiv:2606.13737v1 Announce Type: new \nAbstract: Stream guardrails enable token-level safety detection before full responses are generated. However, they often make overly conservative judgements and block those sensitive but safe tokens, which is known as over-refusal. Due to lack of full context, they also fail to detect implicitly harmful content from jailbreaking. To address these challenges, we propose FreoStream, a novel streaming guardrail framework. Specifically, FreoStream fine-tunes a …",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 0.85,
     "matched_topics": []
   },
   {
@@ -1845,16 +1941,6 @@
     "matched_topics": []
   },
   {
-    "title": "How Quickly Do Development Teams Update Their Vulnerable Dependencies?",
-    "url": "https://arxiv.org/abs/2403.17382",
-    "published": "2026-06-15",
-    "summary": "arXiv:2403.17382v4 Announce Type: replace-cross \nAbstract: Industry practitioners are increasingly concerned with software that contains vulnerable versions of third-party dependencies that are included both directly and transitively. To address this problem, projects are encouraged to both (a)~quickly update to non-vulnerable versions of dependencies and (b)~be mindful of the update practices of the dependencies they choose to use. To this end, researchers have proposed metrics to measure the r…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 0.85,
-    "matched_topics": []
-  },
-  {
     "title": "SARSteer: Safeguarding Large Audio-Language Models via Safe-Ablated Refusal Steering",
     "url": "https://arxiv.org/abs/2510.17633",
     "published": "2026-06-15",
@@ -1869,16 +1955,6 @@
     "url": "https://arxiv.org/abs/2601.14033",
     "published": "2026-06-15",
     "summary": "arXiv:2601.14033v2 Announce Type: replace-cross \nAbstract: Machine learning models are increasingly served behind APIs. This renders private prediction, i.e., privatizing a model's outputs rather than its parameters, a natural privacy target: model outputs are lower-dimensional and far more stable to training-data changes than weights.\n  While differential privacy (DP) cannot effectively exploit this as it calibrates noise to worst-case sensitivity that is intractable to bound for non-convex mod…",
-    "source_type": "papers",
-    "origin": "arXiv cs.CR (snapshot)",
-    "relevance_score": 0.85,
-    "matched_topics": []
-  },
-  {
-    "title": "Rotation-Invariant Spherical Watermarking via Third-Order SO(3) Representation Coupling",
-    "url": "https://arxiv.org/abs/2605.26702",
-    "published": "2026-06-15",
-    "summary": "arXiv:2605.26702v3 Announce Type: replace-cross \nAbstract: Reliable watermarking of panoramic imagery is fundamentally challenged by arbitrary 3D rotations. As panoramas are defined on the sphere, they naturally transform under the action of $SO(3)$, rendering conventional planar representations and augmentation-based robustness strategies inadequate and devoid of theoretical guarantees. To address this, we formulate panoramas as spherical signals and leverage $SO(3)$ representation theory to de…",
     "source_type": "papers",
     "origin": "arXiv cs.CR (snapshot)",
     "relevance_score": 0.85,
@@ -1985,20 +2061,20 @@
     "matched_topics": []
   },
   {
-    "title": "Supporting Europe’s work in ensuring a trustworthy AI ecosystem",
-    "url": "https://openai.com/index/supporting-eu-trustworthy-ai-ecosystem",
+    "title": "BBVA puts AI at the core of banking with OpenAI",
+    "url": "https://openai.com/index/bbva",
     "published": "2026-06-11",
-    "summary": "OpenAI supports the EU Code of Practice on AI content transparency, advancing provenance standards and tools to help people understand AI-generated content.",
+    "summary": "Learn how BBVA scaled ChatGPT Enterprise to 100,000 employees and partnered with OpenAI to accelerate AI-powered banking transformation worldwide.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
     "matched_topics": []
   },
   {
-    "title": "BBVA puts AI at the core of banking with OpenAI",
-    "url": "https://openai.com/index/bbva",
+    "title": "How an astrophysicist uses Codex to help simulate black holes",
+    "url": "https://openai.com/index/using-codex-to-simulate-black-holes",
     "published": "2026-06-11",
-    "summary": "Learn how BBVA scaled ChatGPT Enterprise to 100,000 employees and partnered with OpenAI to accelerate AI-powered banking transformation worldwide.",
+    "summary": "Discover how astrophysicist Chi-kwan Chan uses Codex to build black hole simulations, helping scientists study extreme physics and test Einstein’s theory of general relativity.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2015,10 +2091,10 @@
     "matched_topics": []
   },
   {
-    "title": "How an astrophysicist uses Codex to help simulate black holes",
-    "url": "https://openai.com/index/using-codex-to-simulate-black-holes",
+    "title": "Supporting Europe’s work in ensuring a trustworthy AI ecosystem",
+    "url": "https://openai.com/index/supporting-eu-trustworthy-ai-ecosystem",
     "published": "2026-06-11",
-    "summary": "Discover how astrophysicist Chi-kwan Chan uses Codex to build black hole simulations, helping scientists study extreme physics and test Einstein’s theory of general relativity.",
+    "summary": "OpenAI supports the EU Code of Practice on AI content transparency, advancing provenance standards and tools to help people understand AI-generated content.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2325,10 +2401,10 @@
     "matched_topics": []
   },
   {
-    "title": "How Virgin Atlantic ships faster with Codex",
-    "url": "https://openai.com/index/virgin-atlantic",
-    "published": "2026-05-22",
-    "summary": "How Virgin Atlantic used Codex to ship its revamped mobile app on a fixed holiday travel deadline, reaching near-total unit test coverage and zero P1 defects.",
+    "title": "An OpenAI model has disproved a central conjecture in discrete geometry",
+    "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture",
+    "published": "2026-05-20",
+    "summary": "An OpenAI model solved the 80-year-old unit distance problem, disproving a major conjecture in discrete geometry and marking a milestone in AI-driven mathematics.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2349,16 +2425,6 @@
     "url": "https://openai.com/index/the-next-phase-of-education-for-countries",
     "published": "2026-05-20",
     "summary": "OpenAI advances Education for Countries, expanding AI adoption in schools with new partnerships, teacher training, and tools to improve global learning outcomes.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "An OpenAI model has disproved a central conjecture in discrete geometry",
-    "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture",
-    "published": "2026-05-20",
-    "summary": "An OpenAI model solved the 80-year-old unit distance problem, disproving a major conjecture in discrete geometry and marking a milestone in AI-driven mathematics.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2485,6 +2551,16 @@
     "matched_topics": []
   },
   {
+    "title": "AutoScout24 scales engineering with AI-powered workflows",
+    "url": "https://openai.com/index/autoscout24",
+    "published": "2026-05-12",
+    "summary": "Learn how AutoScout24 Group uses Codex and ChatGPT to speed development cycles, improve code quality, and expand AI adoption.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
     "title": "How NVIDIA engineers and researchers build with Codex",
     "url": "https://openai.com/index/nvidia",
     "published": "2026-05-12",
@@ -2499,16 +2575,6 @@
     "url": "https://openai.com/index/what-parameter-golf-taught-us",
     "published": "2026-05-12",
     "summary": "Parameter Golf brought together 1,000+ participants and 2,000+ submissions to explore AI-assisted machine learning research, coding agents, quantization, and novel model design under strict constraints.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "AutoScout24 scales engineering with AI-powered workflows",
-    "url": "https://openai.com/index/autoscout24",
-    "published": "2026-05-12",
-    "summary": "Learn how AutoScout24 Group uses Codex and ChatGPT to speed development cycles, improve code quality, and expand AI adoption.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2545,16 +2611,6 @@
     "matched_topics": []
   },
   {
-    "title": "Parloa builds service agents customers want to talk to",
-    "url": "https://openai.com/index/parloa",
-    "published": "2026-05-07",
-    "summary": "Parloa leverages OpenAI models to power scalable, voice-driven AI customer service agents, enabling enterprises to design, simulate, and deploy reliable, real-time interactions.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
     "title": "Advancing voice intelligence with new models in the API",
     "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
     "published": "2026-05-07",
@@ -2565,20 +2621,20 @@
     "matched_topics": []
   },
   {
-    "title": "Testing ads in ChatGPT",
-    "url": "https://openai.com/index/testing-ads-in-chatgpt",
+    "title": "Introducing Trusted Contact in ChatGPT",
+    "url": "https://openai.com/index/introducing-trusted-contact-in-chatgpt",
     "published": "2026-05-07",
-    "summary": "OpenAI begins testing ads in ChatGPT to support free access, with clear labeling, answer independence, strong privacy protections, and user control.",
+    "summary": "Introducing Trusted Contact in ChatGPT, an optional safety feature that notifies someone you trust if serious self-harm concerns are detected.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
     "matched_topics": []
   },
   {
-    "title": "Introducing Trusted Contact in ChatGPT",
-    "url": "https://openai.com/index/introducing-trusted-contact-in-chatgpt",
+    "title": "Testing ads in ChatGPT",
+    "url": "https://openai.com/index/testing-ads-in-chatgpt",
     "published": "2026-05-07",
-    "summary": "Introducing Trusted Contact in ChatGPT, an optional safety feature that notifies someone you trust if serious self-harm concerns are detected.",
+    "summary": "OpenAI begins testing ads in ChatGPT to support free access, with clear labeling, answer independence, strong privacy protections, and user control.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2605,20 +2661,10 @@
     "matched_topics": []
   },
   {
-    "title": "Singular Bank helps bankers move fast with ChatGPT and Codex",
-    "url": "https://openai.com/index/singular-bank",
+    "title": "Uber uses OpenAI to help people earn smarter and book faster",
+    "url": "https://openai.com/index/uber",
     "published": "2026-05-06",
-    "summary": "Singular Bank built Singularity, an internal assistant using ChatGPT and Codex to help bankers save 60–90 minutes daily on meeting prep, portfolio analysis, and follow-up.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "How frontier firms are pulling ahead",
-    "url": "https://openai.com/index/introducing-b2b-signals",
-    "published": "2026-05-06",
-    "summary": "OpenAI’s B2B Signals research shows how frontier enterprises deepen AI adoption, scale Codex-powered agentic workflows, and build durable competitive advantage.",
+    "summary": "Uber uses OpenAI to power AI assistants and voice features that help drivers earn smarter and riders book faster across a global real-time marketplace.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2635,10 +2681,20 @@
     "matched_topics": []
   },
   {
-    "title": "Uber uses OpenAI to help people earn smarter and book faster",
-    "url": "https://openai.com/index/uber",
+    "title": "How frontier firms are pulling ahead",
+    "url": "https://openai.com/index/introducing-b2b-signals",
     "published": "2026-05-06",
-    "summary": "Uber uses OpenAI to power AI assistants and voice features that help drivers earn smarter and riders book faster across a global real-time marketplace.",
+    "summary": "OpenAI’s B2B Signals research shows how frontier enterprises deepen AI adoption, scale Codex-powered agentic workflows, and build durable competitive advantage.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "Singular Bank helps bankers move fast with ChatGPT and Codex",
+    "url": "https://openai.com/index/singular-bank",
+    "published": "2026-05-06",
+    "summary": "Singular Bank built Singularity, an internal assistant using ChatGPT and Codex to help bankers save 60–90 minutes daily on meeting prep, portfolio analysis, and follow-up.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2675,20 +2731,20 @@
     "matched_topics": []
   },
   {
-    "title": "Advancing youth safety and wellbeing in EMEA",
-    "url": "https://openai.com/index/advancing-youth-safety-in-emea",
+    "title": "New ways to buy ChatGPT ads",
+    "url": "https://openai.com/index/new-ways-to-buy-chatgpt-ads",
     "published": "2026-05-05",
-    "summary": "Explore OpenAI’s European Youth Safety Blueprint and EMEA Youth & Wellbeing Grants, advancing safe, responsible AI for teens, families, and educators.",
+    "summary": "OpenAI expands ChatGPT ads with a beta self-serve Ads Manager, CPC bidding, and enhanced measurement tools—built to protect privacy and keep conversations separate from ads.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
     "matched_topics": []
   },
   {
-    "title": "New ways to buy ChatGPT ads",
-    "url": "https://openai.com/index/new-ways-to-buy-chatgpt-ads",
+    "title": "Advancing youth safety and wellbeing in EMEA",
+    "url": "https://openai.com/index/advancing-youth-safety-in-emea",
     "published": "2026-05-05",
-    "summary": "OpenAI expands ChatGPT ads with a beta self-serve Ads Manager, CPC bidding, and enhanced measurement tools—built to protect privacy and keep conversations separate from ads.",
+    "summary": "Explore OpenAI’s European Youth Safety Blueprint and EMEA Youth & Wellbeing Grants, advancing safe, responsible AI for teens, families, and educators.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2735,20 +2791,20 @@
     "matched_topics": []
   },
   {
-    "title": "Our commitment to community safety",
-    "url": "https://openai.com/index/our-commitment-to-community-safety",
+    "title": "OpenAI models, Codex, and Managed Agents come to AWS",
+    "url": "https://openai.com/index/openai-on-aws",
     "published": "2026-04-28",
-    "summary": "Learn how OpenAI protects community safety in ChatGPT through model safeguards, misuse detection, policy enforcement, and collaboration with safety experts.",
+    "summary": "OpenAI GPT models, Codex, and Managed Agents are now available on AWS, enabling enterprises to build secure AI in their AWS environments.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
     "matched_topics": []
   },
   {
-    "title": "OpenAI models, Codex, and Managed Agents come to AWS",
-    "url": "https://openai.com/index/openai-on-aws",
+    "title": "Our commitment to community safety",
+    "url": "https://openai.com/index/our-commitment-to-community-safety",
     "published": "2026-04-28",
-    "summary": "OpenAI GPT models, Codex, and Managed Agents are now available on AWS, enabling enterprises to build secure AI in their AWS environments.",
+    "summary": "Learn how OpenAI protects community safety in ChatGPT through model safeguards, misuse detection, policy enforcement, and collaboration with safety experts.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2795,16 +2851,6 @@
     "matched_topics": []
   },
   {
-    "title": "GPT-5.5 System Card",
-    "url": "https://openai.com/index/gpt-5-5-system-card",
-    "published": "2026-04-23",
-    "summary": "",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
     "title": "Introducing GPT-5.5",
     "url": "https://openai.com/index/introducing-gpt-5-5",
     "published": "2026-04-23",
@@ -2815,30 +2861,10 @@
     "matched_topics": []
   },
   {
-    "title": "Plugins and skills",
-    "url": "https://openai.com/academy/codex-plugins-and-skills",
+    "title": "GPT-5.5 System Card",
+    "url": "https://openai.com/index/gpt-5-5-system-card",
     "published": "2026-04-23",
-    "summary": "Learn how to use Codex plugins and skills to connect tools, access data, and follow repeatable workflows to automate tasks and improve results.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "How to use Codex for everyday work",
-    "url": "https://openai.com/academy/how-to-use-codex-for-everyday-work",
-    "published": "2026-04-23",
-    "summary": "Explore 10 practical Codex use cases to automate tasks, create deliverables, and turn real inputs into outputs across tools, files, and workflows.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "What is Codex?",
-    "url": "https://openai.com/academy/what-is-codex",
-    "published": "2026-04-23",
-    "summary": "Learn how Codex helps you go beyond chat by automating tasks, connecting tools, and producing real outputs like docs and dashboards.",
+    "summary": "",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2855,10 +2881,10 @@
     "matched_topics": []
   },
   {
-    "title": "How to get started with Codex",
-    "url": "https://openai.com/academy/codex-how-to-start",
+    "title": "What is Codex?",
+    "url": "https://openai.com/academy/what-is-codex",
     "published": "2026-04-23",
-    "summary": "Learn how to get started with Codex by setting up projects, creating threads, and completing your first tasks with step-by-step guidance.",
+    "summary": "Learn how Codex helps you go beyond chat by automating tasks, connecting tools, and producing real outputs like docs and dashboards.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2875,6 +2901,16 @@
     "matched_topics": []
   },
   {
+    "title": "How to use Codex for everyday work",
+    "url": "https://openai.com/academy/how-to-use-codex-for-everyday-work",
+    "published": "2026-04-23",
+    "summary": "Explore 10 practical Codex use cases to automate tasks, create deliverables, and turn real inputs into outputs across tools, files, and workflows.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
     "title": "Working with Codex",
     "url": "https://openai.com/academy/working-with-codex",
     "published": "2026-04-23",
@@ -2885,10 +2921,20 @@
     "matched_topics": []
   },
   {
-    "title": "GPT-5.5 Bio Bug Bounty",
-    "url": "https://openai.com/index/gpt-5-5-bio-bug-bounty",
+    "title": "Plugins and skills",
+    "url": "https://openai.com/academy/codex-plugins-and-skills",
     "published": "2026-04-23",
-    "summary": "Explore the GPT-5.5 Bio Bug Bounty: a red-teaming challenge to find universal jailbreaks for bio safety risks, with rewards up to $25,000.",
+    "summary": "Learn how to use Codex plugins and skills to connect tools, access data, and follow repeatable workflows to automate tasks and improve results.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "How to get started with Codex",
+    "url": "https://openai.com/academy/codex-how-to-start",
+    "published": "2026-04-23",
+    "summary": "Learn how to get started with Codex by setting up projects, creating threads, and completing your first tasks with step-by-step guidance.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -2985,10 +3031,50 @@
     "matched_topics": []
   },
   {
-    "title": "Brainstorming with ChatGPT",
-    "url": "https://openai.com/academy/brainstorming",
+    "title": "Personalizing ChatGPT",
+    "url": "https://openai.com/academy/personalization",
     "published": "2026-04-10",
-    "summary": "Learn how to use ChatGPT to brainstorm ideas, organize thinking, and turn rough concepts into structured, actionable plans.",
+    "summary": "Learn how to personalize ChatGPT using custom instructions and memory to get more relevant, consistent, and tailored responses.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "Analyzing data with ChatGPT",
+    "url": "https://openai.com/academy/data-analysis",
+    "published": "2026-04-10",
+    "summary": "Learn how to analyze data with ChatGPT by exploring datasets, generating insights, creating visualizations, and turning findings into actionable decisions.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "ChatGPT for customer success teams",
+    "url": "https://openai.com/academy/customer-success",
+    "published": "2026-04-10",
+    "summary": "Learn how customer success teams use ChatGPT to manage accounts, improve communication, reduce churn, and drive adoption and renewals.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "Prompting fundamentals",
+    "url": "https://openai.com/academy/prompting",
+    "published": "2026-04-10",
+    "summary": "Learn prompting fundamentals and how to write clear, effective prompts to get better, more useful responses from ChatGPT.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "ChatGPT for operations teams",
+    "url": "https://openai.com/academy/operations",
+    "published": "2026-04-10",
+    "summary": "Learn how operations teams use ChatGPT to streamline workflows, improve coordination, standardize processes, and drive faster execution.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -3005,20 +3091,20 @@
     "matched_topics": []
   },
   {
-    "title": "Working with files in ChatGPT",
-    "url": "https://openai.com/academy/working-with-files",
+    "title": "Using projects in ChatGPT",
+    "url": "https://openai.com/academy/projects",
     "published": "2026-04-10",
-    "summary": "Learn how to upload and work with files in ChatGPT to analyze data, summarize documents, and generate content from PDFs, spreadsheets, and more.",
+    "summary": "Learn how to use projects in ChatGPT to organize chats, files, and instructions, manage ongoing work, and collaborate more effectively.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
     "matched_topics": []
   },
   {
-    "title": "Using projects in ChatGPT",
-    "url": "https://openai.com/academy/projects",
+    "title": "Working with files in ChatGPT",
+    "url": "https://openai.com/academy/working-with-files",
     "published": "2026-04-10",
-    "summary": "Learn how to use projects in ChatGPT to organize chats, files, and instructions, manage ongoing work, and collaborate more effectively.",
+    "summary": "Learn how to upload and work with files in ChatGPT to analyze data, summarize documents, and generate content from PDFs, spreadsheets, and more.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -3045,10 +3131,20 @@
     "matched_topics": []
   },
   {
-    "title": "Research with ChatGPT",
-    "url": "https://openai.com/academy/search-and-deep-research",
+    "title": "Healthcare",
+    "url": "https://openai.com/academy/healthcare",
     "published": "2026-04-10",
-    "summary": "Learn how to research with ChatGPT using search and deep research to find up-to-date information, analyze sources, and generate structured insights.",
+    "summary": "Explore how clinicians use ChatGPT to support diagnosis, documentation, and patient care with secure, HIPAA-compliant AI tools.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "ChatGPT for sales teams",
+    "url": "https://openai.com/academy/sales",
+    "published": "2026-04-10",
+    "summary": "Learn how sales teams use ChatGPT to research accounts, personalize outreach, manage deals, and improve pipeline and conversion.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -3065,10 +3161,20 @@
     "matched_topics": []
   },
   {
-    "title": "ChatGPT for marketing teams",
-    "url": "https://openai.com/academy/marketing",
+    "title": "Using skills",
+    "url": "https://openai.com/academy/skills",
     "published": "2026-04-10",
-    "summary": "Learn how marketing teams use ChatGPT to plan campaigns, generate content, analyze performance, and move from ideas to execution faster.",
+    "summary": "Learn how to create and use ChatGPT skills to build reusable workflows, automate recurring tasks, and ensure consistent, high-quality outputs.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "Research with ChatGPT",
+    "url": "https://openai.com/academy/search-and-deep-research",
+    "published": "2026-04-10",
+    "summary": "Learn how to research with ChatGPT using search and deep research to find up-to-date information, analyze sources, and generate structured insights.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -3085,10 +3191,10 @@
     "matched_topics": []
   },
   {
-    "title": "ChatGPT for customer success teams",
-    "url": "https://openai.com/academy/customer-success",
+    "title": "ChatGPT for marketing teams",
+    "url": "https://openai.com/academy/marketing",
     "published": "2026-04-10",
-    "summary": "Learn how customer success teams use ChatGPT to manage accounts, improve communication, reduce churn, and drive adoption and renewals.",
+    "summary": "Learn how marketing teams use ChatGPT to plan campaigns, generate content, analyze performance, and move from ideas to execution faster.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -3099,76 +3205,6 @@
     "url": "https://openai.com/academy/managers",
     "published": "2026-04-10",
     "summary": "Learn how managers use ChatGPT to prepare for conversations, write clear feedback, stay organized, and improve team effectiveness.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "Using skills",
-    "url": "https://openai.com/academy/skills",
-    "published": "2026-04-10",
-    "summary": "Learn how to create and use ChatGPT skills to build reusable workflows, automate recurring tasks, and ensure consistent, high-quality outputs.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "Analyzing data with ChatGPT",
-    "url": "https://openai.com/academy/data-analysis",
-    "published": "2026-04-10",
-    "summary": "Learn how to analyze data with ChatGPT by exploring datasets, generating insights, creating visualizations, and turning findings into actionable decisions.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "Healthcare",
-    "url": "https://openai.com/academy/healthcare",
-    "published": "2026-04-10",
-    "summary": "Explore how clinicians use ChatGPT to support diagnosis, documentation, and patient care with secure, HIPAA-compliant AI tools.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "ChatGPT for operations teams",
-    "url": "https://openai.com/academy/operations",
-    "published": "2026-04-10",
-    "summary": "Learn how operations teams use ChatGPT to streamline workflows, improve coordination, standardize processes, and drive faster execution.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "Prompting fundamentals",
-    "url": "https://openai.com/academy/prompting",
-    "published": "2026-04-10",
-    "summary": "Learn prompting fundamentals and how to write clear, effective prompts to get better, more useful responses from ChatGPT.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "AI fundamentals",
-    "url": "https://openai.com/academy/what-is-ai",
-    "published": "2026-04-10",
-    "summary": "Learn what AI is, how it works, and how tools like ChatGPT use large language models. A clear, beginner-friendly guide to understanding artificial intelligence.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "ChatGPT for sales teams",
-    "url": "https://openai.com/academy/sales",
-    "published": "2026-04-10",
-    "summary": "Learn how sales teams use ChatGPT to research accounts, personalize outreach, manage deals, and improve pipeline and conversion.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -3195,16 +3231,6 @@
     "matched_topics": []
   },
   {
-    "title": "Personalizing ChatGPT",
-    "url": "https://openai.com/academy/personalization",
-    "published": "2026-04-10",
-    "summary": "Learn how to personalize ChatGPT using custom instructions and memory to get more relevant, consistent, and tailored responses.",
-    "source_type": "vendor",
-    "origin": "OpenAI News",
-    "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
     "title": "Applications of AI at OpenAI",
     "url": "https://openai.com/academy/applications-of-ai",
     "published": "2026-04-10",
@@ -3225,10 +3251,20 @@
     "matched_topics": []
   },
   {
-    "title": "CyberAgent moves faster with ChatGPT Enterprise and Codex",
-    "url": "https://openai.com/index/cyberagent",
-    "published": "2026-04-09",
-    "summary": "CyberAgent uses ChatGPT Enterprise and Codex to securely scale AI adoption, improve quality, and accelerate decisions across advertising, media, and gaming.",
+    "title": "Brainstorming with ChatGPT",
+    "url": "https://openai.com/academy/brainstorming",
+    "published": "2026-04-10",
+    "summary": "Learn how to use ChatGPT to brainstorm ideas, organize thinking, and turn rough concepts into structured, actionable plans.",
+    "source_type": "vendor",
+    "origin": "OpenAI News",
+    "relevance_score": 0.8,
+    "matched_topics": []
+  },
+  {
+    "title": "AI fundamentals",
+    "url": "https://openai.com/academy/what-is-ai",
+    "published": "2026-04-10",
+    "summary": "Learn what AI is, how it works, and how tools like ChatGPT use large language models. A clear, beginner-friendly guide to understanding artificial intelligence.",
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
@@ -3292,486 +3328,6 @@
     "source_type": "vendor",
     "origin": "OpenAI News",
     "relevance_score": 0.8,
-    "matched_topics": []
-  },
-  {
-    "title": "National Institute of Standards and Technology",
-    "url": "https://www.nist.gov/",
-    "published": null,
-    "summary": "May 13, 2026 · From nanoscale devices that power the most advanced microchips to earthquake-resistant skyscrapers, …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.75,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "Narodowy Instytut Samorządu Terytorialnego",
-    "url": "https://www.nist.gov.pl/",
-    "published": null,
-    "summary": "Nowy raport NIST: Ilu urzędników potrzeba do rządzenia gminą? Pytanie o optymalną liczbę urzędników jest kluczowe dla …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.75,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "About NIST - National Institute of Standards and Technology",
-    "url": "https://www.nist.gov/about-nist",
-    "published": null,
-    "summary": "Jul 10, 2009 · The National Institute of Standards and Technology (NIST) was founded in 1901 and is now part of the …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.75,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "NIST - informacja ogólna - Narodowy Instytut Samorządu Te…",
-    "url": "https://www.nist.gov.pl/o-instytucie",
-    "published": null,
-    "summary": "Narodowy Instytut Samorządu Terytorialnego (NIST) jest jednostką budżetową podległą MSWiA. Zadaniem …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.75,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "National Institute of Standards and Technology - Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology",
-    "published": null,
-    "summary": "In 2019, NIST launched a program named NIST on a Chip to decrease the size of instruments from lab machines to chip …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.75,
-    "matched_topics": [
-      "ai_regulation"
-    ]
-  },
-  {
-    "title": "Large language models (LLM). Czym są i jak działają duże model…",
-    "url": "https://webporadnik.pl/large-language-models-llm-czym-sa-i-jak-dzialaja-duze-modele-jezykowe/",
-    "published": null,
-    "summary": "W erze cyfryzacji i automatyzacji, duże modele językowe (LLM) zyskują na znaczeniu. LLM to zaawansowane …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "Duży model językowy – Wikipedia, wolna encyklopedia",
-    "url": "https://pl.wikipedia.org/wiki/Duży_model_językowy",
-    "published": null,
-    "summary": "Duży model językowy (ang. large language model, LLM) [1] – model językowy wyszkolony na dużej ilości danych …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "Co to są duże modele językowe (LLM) — najważniejsze ... - Shaip",
-    "url": "https://pl.shaip.com/blog/a-guide-large-language-model-llm/",
-    "published": null,
-    "summary": "LLM to zaawansowane algorytmy sztucznej inteligencji wyszkolone na ogromnych danych do przetwarzania języka …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "LLM – co to jest? Jak działają duże modele językowe?",
-    "url": "https://pja.edu.pl/llm-co-to-jest-jak-dzialaja-duze-modele-jezykowe/",
-    "published": null,
-    "summary": "May 22, 2025 · Duże modele językowe (LLM) to zaawansowane algorytmy sztucznej inteligencji, które dzięki …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "LLM – co to jest? GPT, Claude, Gemini [2026] | Dokodu",
-    "url": "https://dokodu.it/blog/co-to-jest-llm",
-    "published": null,
-    "summary": "Apr 18, 2025 · LLM, czyli Large Language Model (Duży Model Językowy), to zaawansowany typ algorytmu sztucznej …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "Retrieval-augmented generation – Wikipedia, wolna encyklopedia",
-    "url": "https://pl.wikipedia.org/wiki/Retrieval-augmented_generation",
-    "published": null,
-    "summary": "Oprócz zwiększenia jakości zwracanych odpowiedzi, RAG pozwala również LLM-om na uwzględnianie w generowanych …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "OWASP Foundation, the Open Source Foundation for Applicatio…",
-    "url": "https://owasp.org/",
-    "published": null,
-    "summary": "6 days ago · OWASP Foundation, the Open Source Foundation for Application Security on the main website for The OWASP …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "OWASP - Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/OWASP",
-    "published": null,
-    "summary": "OWASP, the Open Worldwide Application Security Project (formerly Open Web Application Security Project), is an online …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "OWASP Foundation - The Open Source Foundation for Applicatio…",
-    "url": "https://www.owasp.community/projects/top-ten",
-    "published": null,
-    "summary": "The Open Web Application Security Project® (OWASP) is a nonprofit foundation that works to improve the security of …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "The OWASP Top Ten 2025",
-    "url": "https://www.owasptopten.org/",
-    "published": null,
-    "summary": "The OWASP Top Ten is a standard awareness document for developers and web application security. It represents a …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "What is OWASP? What Are The OWASP Top 10? - Cloudflare",
-    "url": "https://www.cloudflare.com/learning/security/threats/owasp-top-10/",
-    "published": null,
-    "summary": "One of OWASP’s core principles is that all of their materials be freely available and easily accessible on their website, making it …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.65,
-    "matched_topics": []
-  },
-  {
-    "title": "ChatGPT",
-    "url": "https://chatgpt.com/",
-    "published": null,
-    "summary": "ChatGPT is your AI chatbot for everyday use. Chat with the most advanced AI to explore ideas, solve problems, and learn …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "OpenAI | Research & Deployment",
-    "url": "https://openai.com/",
-    "published": null,
-    "summary": "Advancing content provenance for a safer, more transparent AI ecosystem Safety May 19, 2026",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "DeepAI",
-    "url": "https://deepai.org/",
-    "published": null,
-    "summary": "Whether you are a hobbyist, a professional artist, or a developer integrating AI into your product, DeepAI delivers advanced …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "‎Google Gemini",
-    "url": "https://gemini.google.com/",
-    "published": null,
-    "summary": "Meet Gemini, Google’s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Perplexity AI",
-    "url": "https://www.perplexity.ai/",
-    "published": null,
-    "summary": "Perplexity is a free AI-powered answer engine that provides accurate, trusted, and real-time answers to any question.",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Toronto District School Board",
-    "url": "https://www.tdsb.on.ca/",
-    "published": null,
-    "summary": "The Toronto District School Board is committed to equity and community engagement, and by providing this tool, …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Find Your School - Toronto District School Board",
-    "url": "https://www.tdsb.on.ca/Find-your/School",
-    "published": null,
-    "summary": "Find your designated school by entering your address, see school contact details and find out who your principal, vice …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "School Search Map - Toronto District School Board",
-    "url": "https://www.tdsb.on.ca/Find-your/School/By-Map",
-    "published": null,
-    "summary": "Toronto District School Board Special Education Centre of Excellence for Black Student Achievement International …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Elementary Schools - Toronto District School Board",
-    "url": "https://www.tdsb.on.ca/Find-your/School/By-School-Name/Elementary",
-    "published": null,
-    "summary": "50 Davisville Ave, Toronto, ON, M4S 1E8 (416) 393-9311 BACK TO LETTER SEARCH Sprucecourt Public School (Grades …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Secondary Schools - Toronto District School Board",
-    "url": "https://www.tdsb.on.ca/Find-your/School/By-School-Name/Secondary",
-    "published": null,
-    "summary": "North Toronto Collegiate Institute (Grades 09–12) 17 Broadway Ave, Toronto, ON, M4P 1T7 (416) 393-9180 Attendance Area for …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Working at the Toronto District School Board",
-    "url": "https://www.tdsb.on.ca/About-Us/Employment",
-    "published": null,
-    "summary": "People & Culture phone line: 416-395-9595 The Toronto District School Board adheres to equitable hiring and employment …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "TDSB School Year Calendar",
-    "url": "https://www.tdsb.on.ca/About-Us/School-Year-Calendar",
-    "published": null,
-    "summary": "Dec 22, 2025 · School Year Calendar. Elementary, Secondary, Holidays and PA Days plus special dates to remember",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "High School",
-    "url": "https://www.tdsb.on.ca/High-School",
-    "published": null,
-    "summary": "High School In high school, the TDSB offers an incredible variety of schools, programs and courses to help students find the …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "webmail aruba",
-    "url": "https://webmail.aruba.it/",
-    "published": null,
-    "summary": "Non è possibile visualizzare una descrizione perché il sito non lo consente.",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Twój portal UE, aktualności i najważniejsze wydarzenia | Unia …",
-    "url": "https://european-union.europa.eu/index_pl",
-    "published": null,
-    "summary": "5 days ago · The EU and the Republic of Korea advanced their strategic partnership even further at a summit in Brussels. …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Your gateway to the EU, News, Highlights | European Union",
-    "url": "https://european-union.europa.eu/index_en",
-    "published": null,
-    "summary": "5 days ago · Discover how the EU functions, its principles, priorities; find out about its history and member states; learn about …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "European Union - Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/European_Union",
-    "published": null,
-    "summary": "The largest by area is Greenland, which is not part of the EU but whose citizens are EU citizens, while the largest by population …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Unia Europejska – Wikipedia, wolna encyklopedia",
-    "url": "https://pl.wikipedia.org/wiki/Unia_Europejska",
-    "published": null,
-    "summary": "Budynek Berlaymont w Brukseli, siedziba Komisji Europejskiej Sala obrad plenarnych Parlamentu Europejskiego w Strasburgu …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "EUROPA - European Union website, the official EU website",
-    "url": "http://eu-int.net/",
-    "published": null,
-    "summary": "The EU in brief, institutions and bodies, countries, symbols, history, facts and figures Information on agriculture, …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "RAG - co to jest i dlaczego zyskuje na popularności? - X-ONE",
-    "url": "https://x-one.pl/blog/rag-co-to-jest-i-dlaczego-zyskuje-na-popularnosci",
-    "published": null,
-    "summary": "RAG, czyli Retrieval-Augmented Generation, to technika łącząca przeszukiwanie z generowaniem tekstu przez modele …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "RAG (Retrieval-Augmented Generation) – co to jest i jak łącz…",
-    "url": "https://cyrekdigital.com/pl/baza-wiedzy/rag/",
-    "published": null,
-    "summary": "5 days ago · RAG to rozwiązanie skutecznie eliminujące jedną z największych słabości współczesnych modeli AI – brak dostępu …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Co oznacza Retrieval Augmented Generation (RAG)? - TheBlue.ai",
-    "url": "https://theblue.ai/blog-pl/trendy/retrieval-augmented-generation-rag-pl/",
-    "published": null,
-    "summary": "Retrieval Augmented Generation (RAG) to systemy, które wprowadzają nowatorskie podejście do zarządzania informacjami …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "What is RAG? - Retrieval-Augmented Generation AI Explain…",
-    "url": "https://aws.amazon.com/what-is/retrieval-augmented-generation/",
-    "published": null,
-    "summary": "What is Retrieval-Augmented Generation (RAG), how and why businesses use RAG AI, and how to use RAG with AWS.",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "AUTONOMOUS | English meaning - Cambridge Dictionary",
-    "url": "https://dictionary.cambridge.org/dictionary/english/autonomous",
-    "published": null,
-    "summary": "AUTONOMOUS definition: 1. independent and having the power to make your own decisions 2. an autonomous …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "AUTONOMOUS Definition & Meaning - Merriam-Webster",
-    "url": "https://www.merriam-webster.com/dictionary/autonomous",
-    "published": null,
-    "summary": "Jun 8, 2026 · free, independent, sovereign, autonomous mean not subject to the rule or control of another. free stresses the …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Autonomous — AI hardware workshop",
-    "url": "https://www.autonomous.ai/",
-    "published": null,
-    "summary": "Hi. We're Autonomous — an AI hardware workshop. Software got AI. Hardware didn't. So we build devices that do.",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "autonomous - Tłumaczenie po polsku - Słownik angielsko-polski …",
-    "url": "https://www.diki.pl/slownik-angielskiego?q=autonomous",
-    "published": null,
-    "summary": "autonomous - tłumaczenie na polski oraz definicja. Co znaczy i jak powiedzieć \"autonomous\" po polsku? - niezależny (o …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "What Does Autonomous Mean? - The Word Counter",
-    "url": "https://thewordcounter.com/meaning-of-autonomous/",
-    "published": null,
-    "summary": "Aug 31, 2021 · What does the word autonomous mean? According to Collins English Dictionary of the English …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "Autonomous Definition & Meaning | Britannica Dictionary",
-    "url": "https://www.britannica.com/dictionary/autonomous",
-    "published": null,
-    "summary": "autonomous (adjective) autonomous /ɑ ˈ tɑːnəməs/ adjective Britannica Dictionary definition of AUTONOMOUS [more …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "AUTONOMOUS Definition & Meaning | Dictionary.com",
-    "url": "https://www.dictionary.com/browse/autonomous",
-    "published": null,
-    "summary": "Autonomous describes things that function separately or independently. Once you move out of your parents' house and get …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
-    "matched_topics": []
-  },
-  {
-    "title": "AUTONOMOUS definition and meaning | Collins English Diction…",
-    "url": "https://www.collinsdictionary.com/dictionary/english/autonomous",
-    "published": null,
-    "summary": "An autonomous person makes their own decisions rather than being influenced by someone else. Autonomous individuals …",
-    "source_type": "news",
-    "origin": "DuckDuckGo",
-    "relevance_score": 0.5,
     "matched_topics": []
   }
 ]

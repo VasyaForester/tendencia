@@ -8,8 +8,10 @@ from pathlib import Path
 from tendencia.analysis.trends import build_trend_candidates
 from tendencia.config_loader import load_yaml, project_root
 from tendencia.models import SourceItem, TrendItem
+from tendencia.pipeline import finalize_sources
 from tendencia.quarter import Quarter
 from tendencia.report.generator import apply_curated
+from tendencia.uploads import list_uploads
 
 
 def data_dir(quarter: Quarter) -> Path:
@@ -24,30 +26,35 @@ def pdf_path(quarter: Quarter) -> Path:
     return project_root() / "reports" / quarter.label / "ai-security-trends.pdf"
 
 
+def load_finalized_sources(quarter: Quarter) -> list[SourceItem]:
+    """Автопоиск + пользовательские загрузки + seed, с тегами тем."""
+    topics_cfg = load_yaml("topics.yaml")
+    data_path = data_dir(quarter) / "sources.json"
+    base: list[SourceItem] = []
+    if data_path.exists():
+        raw = json.loads(data_path.read_text(encoding="utf-8"))
+        base = [SourceItem(**row) for row in raw if row.get("origin") != "user_upload"]
+    return finalize_sources(base, quarter, topics_cfg)
+
+
 def load_sources(quarter: Quarter) -> list[SourceItem]:
-    path = data_dir(quarter) / "sources.json"
-    if not path.exists():
-        raise FileNotFoundError(f"Нет данных: {path}. Запустите: tendencia collect --quarter {quarter}")
-    raw = json.loads(path.read_text(encoding="utf-8"))
-    return [SourceItem(**row) for row in raw]
+    sources = load_finalized_sources(quarter)
+    if not sources:
+        raise FileNotFoundError(
+            f"Нет данных для {quarter}. Запустите: tendencia collect --quarter {quarter} "
+            "или tendencia upload …"
+        )
+    return sources
 
 
 def load_trends(quarter: Quarter) -> tuple[list[SourceItem], list[TrendItem]]:
-    """Загрузить тренды из findings.json или пересобрать из sources.json."""
-    findings = data_dir(quarter) / "findings.json"
-    if findings.exists():
-        payload = json.loads(findings.read_text(encoding="utf-8"))
-        sources = [SourceItem(**row) for row in payload.get("sources", [])]
-        trends: list[TrendItem] = []
-        for row in payload.get("trends", []):
-            src_rows = row.pop("sources", [])
-            trend = TrendItem(**row)
-            trend.sources = [SourceItem(**s) for s in src_rows]
-            trends.append(trend)
-        return sources, apply_curated(trends)
-
-    sources = load_sources(quarter)
+    """Собрать актуальные источники (с upload) и тренды."""
+    if not list_uploads(quarter) and not (data_dir(quarter) / "sources.json").exists():
+        raise FileNotFoundError(
+            f"Нет данных для {quarter}. Запустите collect или upload."
+        )
     topics_cfg = load_yaml("topics.yaml")
+    sources = load_finalized_sources(quarter)
     trends = build_trend_candidates(
         sources,
         topics_cfg,

@@ -13,6 +13,7 @@ SourceType = Literal[
     "incidents",  # формат: отчёт об инциденте/CVE, не тематический тренд
     "news",
     "social",
+    "user_upload",  # формат: добавлено пользователем (ссылка / PDF)
     "unknown",
 ]
 

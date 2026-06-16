@@ -13,6 +13,7 @@ SOURCE_TYPE_WEIGHT = {
     "papers": 0.85,
     "vendor": 0.8,
     "incidents": 0.9,
+    "user_upload": 1.0,
     "news": 0.5,
     "social": 0.35,
     "unknown": 0.4,

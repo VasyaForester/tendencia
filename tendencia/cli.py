@@ -9,16 +9,17 @@ from pathlib import Path
 
 from rich.console import Console
 
-from tendencia.analysis.ranker import rank_and_tag_sources
 from tendencia.analysis.trends import build_trend_candidates
 from tendencia.collectors import collect_arxiv, collect_ddg, collect_rss
-from tendencia.config_loader import load_yaml, project_root
+from tendencia.config_loader import load_yaml
+from tendencia.loaders import data_dir, load_finalized_sources, load_trends, pdf_path, report_path
+from tendencia.models import SourceItem
+from tendencia.pipeline import finalize_sources
 from tendencia.quarter import Quarter
-from tendencia.loaders import data_dir, load_trends, pdf_path, report_path
 from tendencia.report.generator import generate_report, save_findings
 from tendencia.report.pdf_report import generate_pdf
 from tendencia.report.terminal import format_plain_text, print_markdown_file, print_terminal_report
-from tendencia.seed_sources import Q2_2026_SEEDS
+from tendencia.uploads import add_link, add_pdf, list_uploads, remove_upload
 
 console = Console(force_terminal=True, legacy_windows=False)
 
@@ -46,45 +47,51 @@ def cmd_collect(args: argparse.Namespace) -> int:
     sources_cfg = load_yaml("sources.yaml")
     topics_cfg = load_yaml("topics.yaml")
 
-    all_sources = []
-    console.print("Сбор RSS-лент...")
-    all_sources.extend(collect_rss(sources_cfg.get("rss_feeds", []), quarter))
-    console.print("Сбор arXiv...")
-    all_sources.extend(collect_arxiv(sources_cfg.get("arxiv_queries", []), quarter))
-    console.print("Поиск DuckDuckGo...")
-    all_sources.extend(collect_ddg(sources_cfg.get("search_queries", [])))
+    all_sources: list[SourceItem] = []
+    if not args.no_search:
+        console.print("Сбор RSS-лент...")
+        all_sources.extend(collect_rss(sources_cfg.get("rss_feeds", []), quarter))
+        console.print("Сбор arXiv...")
+        all_sources.extend(collect_arxiv(sources_cfg.get("arxiv_queries", []), quarter))
+        console.print("Поиск DuckDuckGo...")
+        all_sources.extend(collect_ddg(sources_cfg.get("search_queries", [])))
+    else:
+        console.print("[dim]Автопоиск пропущен (--no-search)[/dim]")
 
-    if quarter.label == "2026-Q2":
-        seen = {s.url for s in all_sources}
-        for seed in Q2_2026_SEEDS:
-            if seed.url not in seen:
-                all_sources.append(seed)
-                seen.add(seed.url)
-
-    ranked = rank_and_tag_sources(all_sources, topics_cfg)
+    console.print("Пользовательские загрузки...")
+    ranked = finalize_sources(all_sources, quarter, topics_cfg)
     out = data_dir(quarter) / "sources.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(
         json.dumps([s.__dict__ for s in ranked], ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    console.print(f"[green]Собрано {len(ranked)} источников → {out}[/green]")
+    user_count = sum(1 for s in ranked if s.origin == "user_upload")
+    console.print(
+        f"[green]Собрано {len(ranked)} источников "
+        f"(пользовательских: {user_count}) → {out}[/green]"
+    )
     return 0
 
 
 def cmd_report(args: argparse.Namespace) -> int:
     quarter = Quarter.parse(args.quarter)
     topics_cfg = load_yaml("topics.yaml")
-    data_path = data_dir(quarter) / "sources.json"
 
-    if not data_path.exists():
-        console.print("[red]Сначала выполните: tendencia collect --quarter", quarter.label, "[/red]")
+    if not list_uploads(quarter) and not (data_dir(quarter) / "sources.json").exists():
+        console.print("[red]Нет данных. Выполните collect или upload.[/red]")
         return 1
 
-    raw = json.loads(data_path.read_text(encoding="utf-8"))
-    from tendencia.models import SourceItem
+    try:
+        sources = load_finalized_sources(quarter)
+    except FileNotFoundError as exc:
+        console.print(f"[red]{exc}[/red]")
+        return 1
 
-    sources = [SourceItem(**row) for row in raw]
+    if not sources:
+        console.print("[red]Нет источников для отчёта.[/red]")
+        return 1
+
     trends = build_trend_candidates(
         sources,
         topics_cfg,
@@ -93,6 +100,9 @@ def cmd_report(args: argparse.Namespace) -> int:
 
     findings_path = data_dir(quarter) / "findings.json"
     save_findings(findings_path, quarter, sources, trends)
+
+    out = data_dir(quarter) / "sources.json"
+    out.write_text(json.dumps([s.__dict__ for s in sources], ensure_ascii=False, indent=2), encoding="utf-8")
 
     md_path = report_path(quarter)
     generate_report(quarter, trends, sources, md_path)
@@ -184,6 +194,65 @@ def cmd_pdf(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_upload_link(args: argparse.Namespace) -> int:
+    quarter = Quarter.parse(args.quarter)
+    try:
+        entry = add_link(
+            quarter,
+            args.url,
+            title=args.title,
+            published=args.published,
+            notes=args.notes or "",
+        )
+    except Exception as exc:
+        console.print(f"[red]Ошибка: {exc}[/red]")
+        return 1
+    console.print(f"[green]Добавлена ссылка [{entry['id']}]: {entry['title']}[/green]")
+    return 0
+
+
+def cmd_upload_pdf(args: argparse.Namespace) -> int:
+    quarter = Quarter.parse(args.quarter)
+    try:
+        entry = add_pdf(
+            quarter,
+            Path(args.file),
+            title=args.title,
+            published=args.published,
+            notes=args.notes or "",
+        )
+    except Exception as exc:
+        console.print(f"[red]Ошибка: {exc}[/red]")
+        return 1
+    console.print(f"[green]Добавлен PDF [{entry['id']}]: {entry['title']}[/green]")
+    return 0
+
+
+def cmd_upload_list(args: argparse.Namespace) -> int:
+    quarter = Quarter.parse(args.quarter)
+    items = list_uploads(quarter)
+    if not items:
+        console.print("[dim]Загрузок нет.[/dim]")
+        return 0
+    for item in items:
+        kind = "PDF" if item.get("kind") == "pdf" else "URL"
+        console.print(
+            f"[cyan]{item['id']}[/cyan] [{kind}] {item.get('title')} "
+            f"({item.get('published', '—')})"
+        )
+        console.print(f"  {item.get('url', '')}")
+    return 0
+
+
+def cmd_upload_remove(args: argparse.Namespace) -> int:
+    quarter = Quarter.parse(args.quarter)
+    if remove_upload(quarter, args.id):
+        console.print(f"[green]Удалено: {args.id}[/green]")
+        return 0
+    console.print(f"[red]Не найдено: {args.id}[/red]")
+    return 1
+
+
 def cmd_run(args: argparse.Namespace) -> int:
     if cmd_collect(args) != 0:
         return 1
@@ -205,6 +274,11 @@ def main(argv: list[str] | None = None) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_collect = sub.add_parser("collect", parents=[common], help="Собрать источники")
+    p_collect.add_argument(
+        "--no-search",
+        action="store_true",
+        help="Только пользовательские загрузки и seed (без RSS/arXiv/DDG)",
+    )
     p_collect.set_defaults(func=cmd_collect)
 
     p_report = sub.add_parser("report", parents=[common], help="Сгенерировать отчёт из sources.json")
@@ -243,6 +317,30 @@ def main(argv: list[str] | None = None) -> int:
         help="Открыть PDF после создания",
     )
     p_pdf.set_defaults(func=cmd_pdf)
+
+    p_upload = sub.add_parser("upload", help="Пользовательские ссылки и PDF")
+    upload_sub = p_upload.add_subparsers(dest="upload_command", required=True)
+
+    p_u_link = upload_sub.add_parser("link", parents=[common], help="Добавить URL")
+    p_u_link.add_argument("url", help="HTTP(S)-ссылка")
+    p_u_link.add_argument("--title", help="Заголовок (если не извлечь с страницы)")
+    p_u_link.add_argument("--published", help="Дата публикации YYYY-MM-DD")
+    p_u_link.add_argument("--notes", help="Заметка")
+    p_u_link.set_defaults(func=cmd_upload_link)
+
+    p_u_pdf = upload_sub.add_parser("pdf", parents=[common], help="Добавить PDF-файл")
+    p_u_pdf.add_argument("file", help="Путь к .pdf")
+    p_u_pdf.add_argument("--title", help="Заголовок")
+    p_u_pdf.add_argument("--published", help="Дата публикации YYYY-MM-DD")
+    p_u_pdf.add_argument("--notes", help="Заметка")
+    p_u_pdf.set_defaults(func=cmd_upload_pdf)
+
+    p_u_list = upload_sub.add_parser("list", parents=[common], help="Список загрузок")
+    p_u_list.set_defaults(func=cmd_upload_list)
+
+    p_u_rm = upload_sub.add_parser("remove", parents=[common], help="Удалить загрузку")
+    p_u_rm.add_argument("id", help="ID из upload list")
+    p_u_rm.set_defaults(func=cmd_upload_remove)
 
     args = parser.parse_args(argv)
     return args.func(args)
